@@ -1,0 +1,1432 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme="https://volantis.js.org/#2.6.6">
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+    <title>[原创]伸展树(SPLAY)个人总结+模板 [平衡树]【数据结构】【模板】 - tabris的博客</title>
+  
+    <meta name="keywords" content="CSDN,数据结构,伸展树,SPLAY,OI,acm模板">
+  
+  
+    <meta name="description" content="[原创]伸展树(SPLAY)个人总结+模板 [平衡树]【数据结构】【模板】
+2017-06-21 14:52:43  Tabris_ 阅读数：1804
+
+博客爬取于2020-06-14 22:39:10以下为正文
+版权声明：本文为Tabris原创文章，未经博主允许不得私自转载。https://blog.csdn....">
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="tabris的博客">
+  
+
+  <!-- import meta -->
+  
+    
+      <meta name="theme-color" content="#FFFFFF">
+    
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  
+
+  <!-- import link -->
+  
+  
+  <link rel="shortcut icon" type="image/x-icon" sizes="16x16 32x32 48x48 64x64" href="/assets/favicon/favicon.ico">
+  <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/assets/favicon/favicon_180.png">
+  <link rel="mask-icon" color="#1BC3FB" href="/assets/favicon/favicon_180.png">
+  <link rel="manifest" href="/manifest.json">
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+  
+  <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+<header class="l_header shadow blur">
+  <div class="container">
+  <div class="wrapper">
+    <div class="nav-sub">
+      <p class="title"></p>
+      <ul class="switcher nav-list-h">
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href="/">
+          
+          
+            <i class="https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/avatar/avatar.jpg"></i>
+          
+          
+            Tabris
+          
+          
+        </a>
+      
+
+			<div class="menu navigation">
+				<ul class="nav-list-h">
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href="/" id="home">
+                  <i class="fas fa-home fa-fw"></i>首页
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href="/categories/" id="categories">
+                  <i class="fas fa-folder-open fa-fw"></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href="/tags/" id="tags">
+                  <i class="fas fa-tags fa-fw"></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href="/archives/" id="archives">
+                  <i class="fas fa-archive fa-fw"></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href="/friends/" id="friends">
+                  <i class="fas fa-link fa-fw"></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href="/about/" id="about">
+                  <i class="fas fa-info-circle fa-fw"></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box">
+                  <i class="fas fa-book fa-fw"></i>待整理
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="/categories/" id="categories">
+                  <i class="fas fa-folder-open fa-fw"></i>分类
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="/tags/" id="tags">
+                  <i class="fas fa-tags fa-fw"></i>标签
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="/archives/" id="archives">
+                  <i class="fas fa-archive fa-fw"></i>归档
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="/friends/" id="friends">
+                  <i class="fas fa-link fa-fw"></i>友链
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="/about/" id="about">
+                  <i class="fas fa-info-circle fa-fw"></i>关于
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="搜索...">
+        </form>
+      </div>
+
+			<ul class="switcher nav-list-h">
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href="javascript:void(0)"></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href="javascript:void(0)"></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href="/" id="home">
+                  <i class="fas fa-home fa-fw"></i>首页
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href="/categories/" id="categories">
+                  <i class="fas fa-folder-open fa-fw"></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href="/tags/" id="tags">
+                  <i class="fas fa-tags fa-fw"></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href="/archives/" id="archives">
+                  <i class="fas fa-archive fa-fw"></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href="/friends/" id="friends">
+                  <i class="fas fa-link fa-fw"></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href="/about/" id="about">
+                  <i class="fas fa-info-circle fa-fw"></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box">
+                  <i class="fas fa-book fa-fw"></i>待整理
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="/categories/" id="categories">
+                  <i class="fas fa-folder-open fa-fw"></i>分类
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="/tags/" id="tags">
+                  <i class="fas fa-tags fa-fw"></i>标签
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="/archives/" id="archives">
+                  <i class="fas fa-archive fa-fw"></i>归档
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="/friends/" id="friends">
+                  <i class="fas fa-link fa-fw"></i>友链
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="/about/" id="about">
+                  <i class="fas fa-info-circle fa-fw"></i>关于
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+<script>setLoadingBarProgress(40);</script>
+
+
+
+  <div class="l_body nocover">
+    <div class="body-wrapper">
+      
+
+<div class="l_main">
+  
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class="meta">
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/2017-06-21-73549164/">
+      [原创]伸展树(SPLAY)个人总结+模板 [平衡树]【数据结构】【模板】
+    </a>
+  </h1>
+
+
+        
+        <div class="new-meta-box">
+          
+            
+          
+            
+              
+<div class="new-meta-item author">
+  <a href rel="nofollow">
+    <img src>
+    <p></p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class="new-meta-item category">
+    <a href="/categories/csdn/%E6%A8%A1%E6%9D%BF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>CSDN/模板/数据结构</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class="notlink">
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2017年6月21日</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              
+  <div class="new-meta-item wordcount">
+    <a class="notlink">
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：2.4k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class="notlink">
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：10分钟</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              
+  <div class="new-meta-item browse valine">
+    <a class="notlink">
+      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+      
+      <span id="/2017-06-21-73549164/" class="leancloud_visitors" data-flag-title="[原创]伸展树(SPLAY)个人总结+模板 [平衡树]【数据结构】【模板】">
+      <p>
+        <span class="leancloud-visitors-count"></span>
+      </p>
+      </span>
+    </a>
+  </div>
+
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <p>[原创]伸展树(SPLAY)个人总结+模板 [平衡树]【数据结构】【模板】</p>
+<p>2017-06-21 14:52:43  <a href="https://me.csdn.net/qq_33184171" target="_blank" rel="external nofollow noopener noreferrer">Tabris_</a> 阅读数：1804</p>
+<hr>
+<p>博客爬取于<code>2020-06-14 22:39:10</code><br><strong><em>以下为正文</em></strong></p>
+<p>版权声明：本文为Tabris原创文章，未经博主允许不得私自转载。<br><a href="https://blog.csdn.net/qq_33184171/article/details/73549164" target="_blank" rel="external nofollow noopener noreferrer">https://blog.csdn.net/qq_33184171/article/details/73549164</a></p>
+<a id="more"></a>
+
+<hr>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近3个月内，无论是现场赛还线上赛中SPLAY出现的概率大的惊人啊啊啊！！！<br>然而不会的我就GG了，同时发现大家都会SPLAY，，，，然后就学习了一波。</p>
+<hr>
+<p>开始怎么学都学不懂，直到看到一句话</p>
+<blockquote>
+<p>想学好splay,只要把伸展和旋转操作弄懂,就好了.<br>(而这两个想要学会就是需要自己画图自己理解了)</p>
+</blockquote>
+<p> 于是茅塞顿开,有了本文,<br> 本文重点是SPLAY维护序列的操作,而非SPLAY本身,这部分会说的比较粗略,二叉树的部分更不会有说明,</p>
+<p><strong>菜(sha3)逼我也只是初学,如果有描述不当甚至错误的地方,欢迎指正</strong></p>
+<hr>
+<h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><p>伸展树（Splay Tree），也叫分裂树，是一种二叉排序树，它能在O(log n)内完成插入、查找和删除操作。</p>
+<p>同其他平衡树一样,都是在二叉排序树的基础上进行操作的,但不同于AVL需要记录平衡信息,也没有红黑树实现上的难度.是一种综合考量下很适合应用于信息学竞赛的平衡树.</p>
+<p>对于一个基本的SPLAY 我这样定义</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">int ch[<span class="string">N</span>][<span class="symbol">2</span>];  //ch[<span class="string"></span>][<span class="symbol">0</span>] 表示左儿子 ch[][1] 表示右儿子</span><br><span class="line">int f[N];      //节点的父亲节点</span><br><span class="line">int sz[N];     //当前节点给所在的子树的节点个数</span><br><span class="line">int val[N];    //当前节点表示的值</span><br><span class="line">int cnt[N];    //当前节点所表示的值的个数</span><br><span class="line">int root;      //记录根节点的</span><br><span class="line">int tot;       //计算树中节点个数</span><br></pre></td></tr></table></figure>
+
+<p>构建的过程也就和普通二叉树一样了,递归下去即可</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">void</span> newnode(<span class="built_in">int</span> rt,<span class="built_in">int</span> v,<span class="built_in">int</span> fa)&#123;</span><br><span class="line">    f[rt]=fa;</span><br><span class="line">    val[rt]=v;sz[rt]=<span class="number">1</span>;</span><br><span class="line">    ch[rt][<span class="number">0</span>]=ch[rt][<span class="number">1</span>]=<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">void</span> delnode(<span class="built_in">int</span> rt)&#123;</span><br><span class="line">    f[rt]=sz[rt]=val[rt]=<span class="number">0</span>;</span><br><span class="line">    ch[rt][<span class="number">0</span>]=ch[rt][<span class="number">1</span>]=<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">void</span> build(<span class="built_in">int</span> &amp;rt,<span class="built_in">int</span> l,<span class="built_in">int</span> r,<span class="built_in">int</span> fa)&#123;</span><br><span class="line">    <span class="keyword">if</span>(l&gt;r) <span class="keyword">return</span> ;</span><br><span class="line">    <span class="built_in">int</span> m = r+l &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    rt=m; newnode(rt,val[rt],fa);cnt[rt]=<span class="number">1</span>;</span><br><span class="line">    build(ch[rt][<span class="number">0</span>],l,m<span class="number">-1</span>,rt);</span><br><span class="line">    build(ch[rt][<span class="number">1</span>],m+<span class="number">1</span>,r,rt);</span><br><span class="line">    pushup(rt);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">void</span> init(<span class="built_in">int</span> n)&#123;</span><br><span class="line">    root=<span class="number">0</span>;</span><br><span class="line">    f[<span class="number">0</span>]=sz[<span class="number">0</span>]=ch[<span class="number">0</span>][<span class="number">0</span>]=ch[<span class="number">0</span>][<span class="number">1</span>]=rev[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">    build(root,<span class="number">1</span>,n,<span class="number">0</span>);</span><br><span class="line">    pushup(root);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="旋转"><a href="#旋转" class="headerlink" title="旋转"></a>旋转</h1><p>对于一颗二叉排序树,根据序列的信息很容易找到某一个值,只要不断的向下搜索下去即可,复杂度是<strong>O(树高)</strong>,<br>但是二叉树最坏的情况下是会退化成一个单链的,这是后查找的复杂度就是<strong>O(n)</strong>了,非常不可取</p>
+<p>而在SPLAY中控制树保持平衡需要的就是<strong>旋转操作</strong>,是树保持平衡,这样复杂度就变成了<strong>均摊</strong>$O(\log n)$的了</p>
+<h3 id="单旋-左旋-zag-amp-右旋-zig"><a href="#单旋-左旋-zag-amp-右旋-zig" class="headerlink" title="单旋: 左旋(zag)&amp;右旋(zig)"></a>单旋: 左旋(zag)&amp;右旋(zig)</h3><p><img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" data-original="http://dl2.iteye.com/upload/attachment/0019/1324/03e3d39d-3664-3341-9e1f-0c3eb3082bf3.jpg" alt></p>
+<h3 id="双旋"><a href="#双旋" class="headerlink" title="双旋:"></a>双旋:</h3><p>通过树的旋转来自我调整来保持平衡,就是基于这两个操作<strong>左旋(zag)&amp;右旋(zig)</strong>,还有其延伸出的操作<br><img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" data-original="http://www.myexception.cn/img/2015/08/12/094945901.png" alt><br><img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" data-original="http://www.myexception.cn/img/2015/08/12/094945902.png" alt></p>
+<p>下面来实现下旋转操作</p>
+<blockquote>
+<p>总之就是对每次旋转节点间关系信息发生改变的位置调整好就行<br>需要点耐心,不要调错</p>
+</blockquote>
+<figure class="highlight gml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">void rotate(int <span class="symbol">x</span>,int k)&#123;   <span class="comment">// k = 0 左旋， k = 1 右旋</span></span><br><span class="line">    int <span class="symbol">y</span>=f[<span class="symbol">x</span>];int z=f[<span class="symbol">y</span>];</span><br><span class="line">    pushdown(<span class="symbol">y</span>),pushdown(<span class="symbol">x</span>);</span><br><span class="line">    ch[<span class="symbol">y</span>][!k]=ch[<span class="symbol">x</span>][k];<span class="keyword">if</span>(ch[<span class="symbol">x</span>][k])f[ch[<span class="symbol">x</span>][k]]=<span class="symbol">y</span>;</span><br><span class="line">    f[<span class="symbol">x</span>]=z;<span class="keyword">if</span>(z)ch[z][ch[z][<span class="number">1</span>]==<span class="symbol">y</span>]=<span class="symbol">x</span>;</span><br><span class="line">    f[<span class="symbol">y</span>]=<span class="symbol">x</span>;ch[<span class="symbol">x</span>][k]=<span class="symbol">y</span>;</span><br><span class="line">    pushup(<span class="symbol">y</span>),pushup(<span class="symbol">x</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="伸展"><a href="#伸展" class="headerlink" title="伸展"></a>伸展</h1><p>经过多次旋转,将节点位置坐出调整的操作就是伸展了</p>
+<p>来举个栗子，对于一个退化为单链的树进行旋转<br><img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" data-original="http://images2015.cnblogs.com/blog/1130316/201703/1130316-20170322210134174-1328823653.png" alt><br><img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" data-original="http://images2015.cnblogs.com/blog/1130316/201703/1130316-20170322210202830-1131794868.png" alt></p>
+<p>双旋的写法，比较稳定</p>
+<figure class="highlight gml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">void splay(int <span class="symbol">x</span>,int goal)&#123;<span class="comment">//将x旋转到goal的下面  </span></span><br><span class="line">    <span class="keyword">while</span>(f[<span class="symbol">x</span>] != goal)&#123;  </span><br><span class="line">        <span class="keyword">if</span>(f[f[<span class="symbol">x</span>]] == goal) rotate(<span class="symbol">x</span> , ch[f[<span class="symbol">x</span>]][<span class="number">0</span>] == <span class="symbol">x</span>);  </span><br><span class="line">        <span class="keyword">else</span>   &#123;  </span><br><span class="line">            int <span class="symbol">y</span>=f[<span class="symbol">x</span>],z=f[<span class="symbol">y</span>];  </span><br><span class="line">            int K = (ch[z][<span class="number">0</span>]==<span class="symbol">y</span>);  </span><br><span class="line">            <span class="keyword">if</span>(ch[<span class="symbol">y</span>][K] == <span class="symbol">x</span>) rotate(<span class="symbol">x</span>,!K),rotate(<span class="symbol">x</span>,K);  </span><br><span class="line">            <span class="keyword">else</span> rotate(<span class="symbol">y</span>,K),rotate(<span class="symbol">x</span>,K);  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    pushup(<span class="symbol">x</span>);  </span><br><span class="line">    <span class="keyword">if</span>(goal==<span class="number">0</span>) root=<span class="symbol">x</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><del>而我发现zig-zag这种两个旋转合在一起的操作,其实是两遍单旋,所以只要每次都向上单旋就行了,</del></p>
+<figure class="highlight gml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">单旋容易被卡 不懂 百度伸展树单双旋的比较</span><br><span class="line">void splay(int <span class="symbol">x</span>,int goal)&#123;  <span class="comment">//将x调整为goal的儿子,(如果要调整到根goal就是0)</span></span><br><span class="line">    <span class="keyword">for</span>(int <span class="symbol">y</span>=f[<span class="symbol">x</span>];f[<span class="symbol">x</span>]!=goal;<span class="symbol">y</span>=f[<span class="symbol">x</span>])</span><br><span class="line">        rotate(<span class="symbol">x</span>,(ch[<span class="symbol">y</span>][<span class="number">0</span>]==<span class="symbol">x</span>)); <span class="comment">//(ch[y][0]==x)计算是左旋还是右旋,看x是左右儿子哪一个区分开了</span></span><br><span class="line">    <span class="keyword">if</span>(goal==<span class="number">0</span>) root=<span class="symbol">x</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="各种操作"><a href="#各种操作" class="headerlink" title="各种操作"></a>各种操作</h1><blockquote>
+<p><strong>对于SPALY能够做到的操作以【BZOJ3224 普通平衡树】为引,以 【BZOJ 1895 &amp; POJ 3580 supermemo 】做补充,如果不完全,后期会补上</strong></p>
+</blockquote>
+<h2 id="一些基本操作"><a href="#一些基本操作" class="headerlink" title="一些基本操作"></a>一些基本操作</h2><h3 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h3><blockquote>
+<p>查找部分和普通的二叉查找树一模一样,只要遍历下去即可</p>
+</blockquote>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> search(<span class="built_in">int</span> rt,<span class="built_in">int</span> x)&#123;</span><br><span class="line">        <span class="keyword">if</span>(ch[rt][<span class="number">0</span>]&amp;&amp;val[rt]&gt;x) <span class="keyword">return</span> search(ch[rt][<span class="number">0</span>],x);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(ch[rt][<span class="number">1</span>]&amp;&amp;val[rt]&lt;x)<span class="keyword">return</span> search(ch[rt][<span class="number">1</span>],x);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> rt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="极值-amp-前驱-后继"><a href="#极值-amp-前驱-后继" class="headerlink" title="极值 &amp; 前驱,后继"></a>极值 &amp; 前驱,后继</h3><p>前驱:小于x的最大的数<br>后继:大于x的最小的数</p>
+<blockquote>
+<p>先找到x所在的节点,然后在左右子树,找最右左的节点即可</p>
+</blockquote>
+<figure class="highlight gml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//以x为根的子树 的极值点  0 极小 1 极大</span></span><br><span class="line">int extreme(int <span class="symbol">x</span>,int k)&#123;</span><br><span class="line">    <span class="keyword">while</span>(ch[<span class="symbol">x</span>][k])<span class="symbol">x</span>=ch[<span class="symbol">x</span>][k];splay(<span class="symbol">x</span>,<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="symbol">x</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="第K个数"><a href="#第K个数" class="headerlink" title="第K个数"></a>第K个数</h3><p>第k个数,通过记录的sz[],很容易得到每个节点是第几个,不断的在树上二分就行,</p>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//以x为根的子树 第k个数的位置</span><br><span class="line">int kth(int x,int k)&#123;</span><br><span class="line">    if(sz<span class="comment">[ch<span class="comment">[x]</span><span class="comment">[0]</span>]</span>+1==k&amp;&amp;k&lt;=sz<span class="comment">[ch<span class="comment">[x]</span><span class="comment">[0]</span>]</span>+cnt<span class="comment">[x]</span>) return x;</span><br><span class="line">    else if(sz<span class="comment">[ch<span class="comment">[x]</span><span class="comment">[0]</span>]</span>&gt;=k) return kth(ch<span class="comment">[x]</span><span class="comment">[0]</span>,k);</span><br><span class="line">    else return kth(ch<span class="comment">[x]</span><span class="comment">[1]</span>,k-sz<span class="comment">[ch<span class="comment">[x]</span><span class="comment">[0]</span>]</span>-cnt<span class="comment">[x]</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="一些正经的操作"><a href="#一些正经的操作" class="headerlink" title="一些正经的操作"></a>一些正经的操作</h2><h3 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h3><blockquote>
+<p>假如要插入的点已经存在了,那么cnt++就行了,<br>假如要插入的点在x<br>那么让x-1做为树根,x+1伸展到根节点下面,那么x+1的左儿子就是空出来的 加个值就好了 </p>
+</blockquote>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">void</span> _insert(<span class="built_in">int</span> x)&#123;</span><br><span class="line">    <span class="built_in">int</span> y=search(root,x),k=<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">if</span>(val[y]==x)&#123;</span><br><span class="line">        cnt[y]++;</span><br><span class="line">        sz[y]++;</span><br><span class="line">        <span class="keyword">for</span>(<span class="built_in">int</span> yy=y;yy;yy=f[yy]) pushup(yy);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">int</span> p=prec(x),s=sufc(x);</span><br><span class="line">        splay(p,<span class="number">0</span>);splay(s,p);</span><br><span class="line">        newnode(++tot,x,ch[root][<span class="number">1</span>]);</span><br><span class="line">        ch[ch[root][<span class="number">1</span>]][<span class="number">0</span>]=tot;</span><br><span class="line">        <span class="keyword">for</span>(<span class="built_in">int</span> z=ch[root][<span class="number">1</span>];z;z=f[z])pushup(z);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(k==<span class="number">-1</span>) splay(y,<span class="number">0</span>);<span class="keyword">else</span> splay(tot,<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><blockquote>
+<p>和删除一样,就是反过来了而已,<br>首先这个值如果不存在,那就直接return即可<br>如果这个值大于1,那就cnt--即可<br>如果这个值所在的节点的儿子节点有空的,那么就把需要提上去的儿子节点提上去即可<br>如果这个值所在的节点的儿子节点都存在,那么就把这个节点的前驱提到根节点,后继提到根节点的下面,那样的话删除ch[ch[root][1]][0]就行了</p>
+</blockquote>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">void _delete(int x)&#123;</span><br><span class="line">    int y=search(root,x);</span><br><span class="line">    if(val<span class="comment">[y]</span>!=x) return;</span><br><span class="line">    if(cnt<span class="comment">[y]</span>&gt;1)&#123;</span><br><span class="line">        cnt<span class="comment">[y]</span>--;</span><br><span class="line">        sz<span class="comment">[y]</span>--;</span><br><span class="line">        for(int yy=y;yy;yy=f<span class="comment">[yy]</span>) pushup(yy);</span><br><span class="line">    &#125;</span><br><span class="line">    else if(ch<span class="comment">[y]</span><span class="comment">[0]</span>==0||ch<span class="comment">[y]</span><span class="comment">[1]</span>==0)&#123;</span><br><span class="line">        int z=f<span class="comment">[y]</span>;</span><br><span class="line">        ch<span class="comment">[z]</span><span class="comment">[ch<span class="comment">[z]</span><span class="comment">[1]</span>==y]</span>=ch<span class="comment">[y]</span><span class="comment">[ch<span class="comment">[y]</span><span class="comment">[0]</span>==0]</span>;</span><br><span class="line">        f<span class="comment">[ch<span class="comment">[y]</span><span class="comment">[ch<span class="comment">[y]</span><span class="comment">[0]</span>==0]</span>]</span>=z;delnode(y);</span><br><span class="line">        for(int yy=z;yy;yy=f<span class="comment">[yy]</span>) pushup(yy);</span><br><span class="line">    &#125;</span><br><span class="line">    else &#123;</span><br><span class="line">        int p=prec(x),s=sufc(x);</span><br><span class="line">        splay(p,0);splay(s,p);</span><br><span class="line">        ch<span class="comment">[ch<span class="comment">[root]</span><span class="comment">[1]</span>]</span><span class="comment">[0]</span>=0;</span><br><span class="line">        delnode(ch<span class="comment">[ch<span class="comment">[root]</span><span class="comment">[1]</span>]</span><span class="comment">[0]</span>);</span><br><span class="line">        for(int yy=s;yy;yy=f<span class="comment">[yy]</span>) pushup(yy);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="区间加"><a href="#区间加" class="headerlink" title="区间加"></a>区间加</h3><blockquote>
+<p>区间操作</p>
+</blockquote>
+<blockquote>
+<p>对于区间[l,r]<br>那么让l-1做为树根,r+1伸展到根节点下面,那么r+1的左儿子就是这个区间<br>打上lazy_tag就行了</p>
+</blockquote>
+<blockquote>
+<p>但为了更好的处理[1,n]这个区间 加上个0和n+1这两个节点</p>
+</blockquote>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//区间加</span></span><br><span class="line"><span class="built_in">void</span> add(<span class="built_in">int</span> l,<span class="built_in">int</span> r,<span class="built_in">int</span> v)&#123;</span><br><span class="line">    <span class="built_in">int</span> x=kth(root,l<span class="number">-1</span>),y=kth(root,r+<span class="number">1</span>);</span><br><span class="line">    splay(x,<span class="number">0</span>);splay(y,x);</span><br><span class="line">    update_add(ch[y][<span class="number">0</span>],v);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="区间翻转"><a href="#区间翻转" class="headerlink" title="区间翻转"></a>区间翻转</h3><blockquote>
+<p>同样在一个二叉树中 翻转也就是让每个节点的两个儿子交换一下顺序就好了,, 打个标记 就行了,</p>
+</blockquote>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//区间翻转</span></span><br><span class="line"><span class="built_in">void</span> reversal(<span class="built_in">int</span> l,<span class="built_in">int</span> r)&#123;</span><br><span class="line">    <span class="built_in">int</span> x=kth(root,l<span class="number">-1</span>),y=kth(root,r+<span class="number">1</span>);</span><br><span class="line">    splay(x,<span class="number">0</span>);splay(y,x);</span><br><span class="line">    update_rev(ch[y][<span class="number">0</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="区间交换"><a href="#区间交换" class="headerlink" title="区间交换"></a>区间交换</h3><blockquote>
+<p>所以我们可以将后一个区间处理到一个子树上,然后放到l−1,l 这两个节点之间,就好了,先减掉,然后在加上去就好了</p>
+</blockquote>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//区间交换</span></span><br><span class="line"><span class="built_in">void</span> exchange(<span class="built_in">int</span> l1,<span class="built_in">int</span> r1,<span class="built_in">int</span> l2,<span class="built_in">int</span> r2)&#123;</span><br><span class="line">    <span class="built_in">int</span> x=kth(root,l2<span class="number">-1</span>),y=kth(root,r2+<span class="number">1</span>);</span><br><span class="line">    splay(x,<span class="number">0</span>),splay(y,x);</span><br><span class="line">    <span class="built_in">int</span> tmp_right = ch[y][<span class="number">0</span>]; ch[y][<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">    x=kth(root,l1<span class="number">-1</span>),y=kth(root,l1);</span><br><span class="line">    splay(x,<span class="number">0</span>),splay(y,x);</span><br><span class="line">    ch[y][<span class="number">0</span>] = tmp_right;</span><br><span class="line">    f[tmp_right]=y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="合并"><a href="#合并" class="headerlink" title="合并"></a>合并</h3><p>合并是指两颗SPLAY进行合并,<br>要求这两颗树没有交错的部分,(可能没有这个限制,但是我不会,)</p>
+<p>首先处理好一个树A加入到B中,那么在B中腾出一个空节点来代替A树需要的段，然后把A树的树根放到呢个腾出的空节点位置就行了，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>SPLAY操作非常灵活多变,一定要理解SPLAY然后去使用,不要只会套板子就结束了,</p>
+<p>有几点特别要注意的地方<br>1.插入/删除节点的时候注意父节点要修改<br>2.sz[]维护不要出错<br>3. ......</p>
+<hr>
+<p>-</p>
+<p>附上整体代码-md贴上来太卡了,去题解里看吧<br><strong>注：这两个板子没有用双旋，用的单旋。。</strong></p>
+<p><a href="http://blog.csdn.net/qq_33184171/article/details/73518838" target="_blank" rel="external nofollow noopener noreferrer">维护序列的 </a><br><a href="http://blog.csdn.net/qq_33184171/article/details/70304674" target="_blank" rel="external nofollow noopener noreferrer">维护一堆数的</a></p>
+
+          
+            <div class="article_footer">
+              
+                
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class="content">
+    
+      <blockquote>
+        
+          
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            <p>本文永久链接是：<a href="http://tabris.top/2017-06-21-73549164/">http://tabris.top/2017-06-21-73549164/</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  desktop mobile">
+  
+
+  <div class="content article-entry">
+    
+      
+        <div class="fancybox"><img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" data-original="https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/qrcode/wechat.jpg" height="64px"></div>
+      
+    
+      
+        <div class="fancybox"><img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" data-original="https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/qrcode/alipay.jpg" height="64px"></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class="meta" id="footer-meta">
+    <div class="new-meta-box">
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-19T13:14:24+00:00">
+  <a class="notlink">
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年6月19日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/csdn/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>CSDN</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>数据结构</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E4%BC%B8%E5%B1%95%E6%A0%91/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>伸展树</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/splay/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>SPLAY</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/oi/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>OI</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/acm%E6%A8%A1%E6%9D%BF/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>acm模板</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=http://tabris.top/2017-06-21-73549164/&title=[原创]伸展树(SPLAY)个人总结+模板 [平衡树]【数据结构】【模板】 - tabris的博客&summary=[原创]伸展树(SPLAY)个人总结+模板 [平衡树]【数据结构】【模板】
+2017-06-21 14:52:43  Tabris_ 阅读数：1804
+
+博客爬取于2020-06-14 22:39:10以下为正文
+版权声明：本文为Tabris原创文章，未经博主允许不得私自转载。https://blog.csdn.net/qq_33184171/article/details/73549164" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" data-original="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://tabris.top/2017-06-21-73549164/&title=[原创]伸展树(SPLAY)个人总结+模板 [平衡树]【数据结构】【模板】 - tabris的博客&summary=[原创]伸展树(SPLAY)个人总结+模板 [平衡树]【数据结构】【模板】
+2017-06-21 14:52:43  Tabris_ 阅读数：1804
+
+博客爬取于2020-06-14 22:39:10以下为正文
+版权声明：本文为Tabris原创文章，未经博主允许不得私自转载。https://blog.csdn.net/qq_33184171/article/details/73549164" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" data-original="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=http://tabris.top/2017-06-21-73549164/&title=[原创]伸展树(SPLAY)个人总结+模板 [平衡树]【数据结构】【模板】 - tabris的博客&summary=[原创]伸展树(SPLAY)个人总结+模板 [平衡树]【数据结构】【模板】
+2017-06-21 14:52:43  Tabris_ 阅读数：1804
+
+博客爬取于2020-06-14 22:39:10以下为正文
+版权声明：本文为Tabris原创文章，未经博主允许不得私自转载。https://blog.csdn.net/qq_33184171/article/details/73549164" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" data-original="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+        
+        <div class="hoverbox">
+          <a><img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" data-original="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/wechat.png"></a>
+          <div class="target">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARgAAAEYCAAAAACi5bZQAAADAElEQVR42u3aQW7DMAwEwPz/0+29aGAuKbthMboZiW1pfFmQfH1Zv64XAjBgwIABA2YNzKu53j74x+/V+9/dd/We6vuq5wEDBgwYMGDA7IMpB6AQJt1wFaC7v8sPAgYMGDBgwIBZC3MZgIrX6f+6AbD7HjBgwIABAwYMmLgQ1CxITa/BgAEDBgwYMGCmMNWCVtpoAwMGDBgwYMCAiRtUww1OB4rSwPhYJxIMGDBgwIAB8xhMuk4Xku4uTJXPAwYMGDBgwIBZAzNdVxtLC03TYDk+DxgwYMCAAQNmDcypglK3cHUFNoWP9w8GDBgwYMCAWQNzKmBN4apA1d9TMDBgwIABAwbMPpi0sTYd9EkD3RQ+LXCBAQMGDBgwYPbApEDVYHZ3w20a7MCAAQMGDBgw+2HSwlEatKpB8PR+qr+DAQMGDBgwYPbDTBtYaVCbBsL0wOXnggEDBgwYMGDWwUyvpw246n13DQyBAQMGDBgwYPbCTIG6wWvaKJsOEoEBAwYMGDBg9sOcPnDa+Jo20tKG29vzgwEDBgwYMGDWwKSNsm4hafr8bjCMQcGAAQMGDBgwa2C6gzynDtANimmAHFfwwIABAwYMGDAfBzMNXOnG7ipoVYNneXAIDBgwYMCAAbMG5lhACgFPDf5Mgx8YMGDAgAEDZh9MOrhzKridem71A5cbh2DAgAEDBgyYdTDTAtJTDbLpIFK5UAUGDBgwYMCAWQeTBrHpRu8KbmkwBAMGDBgwYMDsh0kLWN1C1HQQqLvPSzgwYMCAAQMGzBqY6UoPeLqh1h08ertPMGDAgAEDBswamNPBrdt4mwa4Uw07MGDAgAEDBsw+mDTQ3TU4lA4Y3R7wwIABAwYMGDBrYE43wLoH6X6A2zqRYMCAAQMGDJh/D3NXw+xUkPuzgAcGDBgwYMCA+XiYUw277gdIA92fJV8wYMCAAQMGzHGYtOE2DlQhbDfgPT44BAYMGDBgwIB5DGZ6sGnD63QBK/0gYMCAAQMGDJh9MBYYMGDAgAEDZtn6BvUe5f/fx8tcAAAAAElFTkSuQmCC">
+          </div>
+        </div>
+      
+    
+      
+        <a class="-mob-share-telegram" title rel="external nofollow noopener noreferrer" href="https://t.me/share/url?url=http://tabris.top/2017-06-21-73549164/&text=[原创]伸展树(SPLAY)个人总结+模板 [平衡树]【数据结构】【模板】 - tabris的博客" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" data-original="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/telegram.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class="prev" href="/2017-06-21-73556860/">
+                <p class="title"><i class="fas fa-chevron-left" aria-hidden="true"></i>[原创]Codeforces 557D - Vitaly and Cycle [二分图染色]【图论】</p>
+                <p class="content">[原创]Codeforces 557D - Vitaly and Cycle [二分图染色]【图论】
+2017-06-21 23:51:59  Tabris_ 阅读数：219
+
+博客爬取于202...</p>
+              </a>
+            
+            
+              <a class="next" href="/2017-06-20-73518838/">
+                <p class="title">[原创]BZOJ 1895 & POJ 3580  supermemo	[SPLAY]【数据结构】<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class="content">[原创]BZOJ 1895 &amp; POJ 3580  supermemo    [SPLAY]【数据结构】
+2017-06-20 20:43:37  Tabris_ 阅读数：611
+
+博客...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class="fas fa-comments"></i> 评论</p>
+      
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+  <script>
+  // https://github.com/theme-next/hexo-theme-next/blob/master/layout/_third-party/math/mathjax.swig
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.0/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    // 文章章节标题不能为 “MathJax” ，否则会报错。
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+
+
+
+  <script>
+    window.subData = {
+      title: '[原创]伸展树(SPLAY)个人总结+模板 [平衡树]【数据结构】【模板】',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class="l_side">
+  
+  
+    
+    
+
+<section class="widget blogger shadow desktop mobile">
+  <div class="content">
+    
+      
+        <a class="avatar flat-box" href="/about/">
+          <img no-lazy src="https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/avatar/avatar.jpg">
+        </a>
+      
+    
+    
+      <div class="text">
+        
+          <h2>tabris's blog</h2>
+        
+        
+          <p>Tabris</p>
+
+        
+        
+          <p><span id="jinrishici-sentence">tabris的博客</span></p>
+          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="/atom.xml" class="social fas fa-rss flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="mailto:tabris.dq@qq.com" class="social fas fa-envelope flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://github.com/tabris233" class="social fab fa-github flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://music.163.com/#/user/home?id=63035382" class="social fas fa-headphones-alt flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+
+  <section class="widget toc-wrapper shadow desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class="name">本文目录</span>
+    
+  </header>
+
+
+    <div class="content">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#单旋-左旋-zag-amp-右旋-zig"><span class="toc-text">单旋: 左旋(zag)&amp;右旋(zig)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#双旋"><span class="toc-text">双旋:</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#一些基本操作"><span class="toc-text">一些基本操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查找"><span class="toc-text">查找</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#极值-amp-前驱-后继"><span class="toc-text">极值 &amp; 前驱,后继</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第K个数"><span class="toc-text">第K个数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一些正经的操作"><span class="toc-text">一些正经的操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#插入"><span class="toc-text">插入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除"><span class="toc-text">删除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#区间加"><span class="toc-text">区间加</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#区间翻转"><span class="toc-text">区间翻转</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#区间交换"><span class="toc-text">区间交换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#合并"><span class="toc-text">合并</span></a></li></ol>
+    </li></div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js theme="#1BCDFC" autoplay="false" volume="0.7" loop="all" order="list" fixed="false" list-max-height="340px" server="netease" type="playlist" id="3175833810" list-folded="true">
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml" class="social fas fa-rss flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="mailto:tabris.dq@qq.com" class="social fas fa-envelope flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/tabris233" class="social fab fa-github flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=63035382" class="social fas fa-headphones-alt flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="external nofollow noopener noreferrer">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+      
+    
+      
+        本站使用
+        <a href="https://volantis.js.org/" target="_blank" class="codename" rel="external nofollow noopener noreferrer">Volantis</a>
+        作为主题，总访问量为
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          次
+        
+      
+    
+      
+        <div class="copyright">
+        <p><a href="http://tabris.top">Copyright © 2017-2020 tabris</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '8px',
+        duration: '800',
+        interval: '100',
+        scale: '1'
+      });
+    });
+  </script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('') {
+          $('').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "XkeYrd6r1FrJXgASPvPJa9Hp-gzGzoHsz",
+    appKey: "de9Yfw8ns8xwf6S9eHOj82Wi",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'true',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.6.5/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-check-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-check-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-times-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-times-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  function pjax_fancybox() {
+    $(".article-entry").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 标准 markdown 描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".article-entry").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  $(function () {
+    pjax_fancybox();
+  });
+</script>
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+<script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
+</html>

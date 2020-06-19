@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme="https://volantis.js.org/#2.6.6">
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+    <title>[原创]字符串问题 ---模板（不定期更新中。） - tabris的博客</title>
+  
+    <meta name="keywords" content="CSDN,字符串,kmp,算法,SA,SAM">
+  
+  
+    <meta name="description" content="[原创]字符串问题 ---模板（不定期更新中。）
+2016-08-08 13:20:00  Tabris_ 阅读数：845
+
+博客爬取于2020-06-14 22:39:14以下为正文
+版权声明：本文为Tabris原创文章，未经博主允许不得私自转载。https://blog.csdn.net/qq_3318417...">
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="tabris的博客">
+  
+
+  <!-- import meta -->
+  
+    
+      <meta name="theme-color" content="#FFFFFF">
+    
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  
+
+  <!-- import link -->
+  
+  
+  <link rel="shortcut icon" type="image/x-icon" sizes="16x16 32x32 48x48 64x64" href="/assets/favicon/favicon.ico">
+  <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/assets/favicon/favicon_180.png">
+  <link rel="mask-icon" color="#1BC3FB" href="/assets/favicon/favicon_180.png">
+  <link rel="manifest" href="/manifest.json">
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+  
+  <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+<header class="l_header shadow blur">
+  <div class="container">
+  <div class="wrapper">
+    <div class="nav-sub">
+      <p class="title"></p>
+      <ul class="switcher nav-list-h">
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href="/">
+          
+          
+            <i class="https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/avatar/avatar.jpg"></i>
+          
+          
+            Tabris
+          
+          
+        </a>
+      
+
+			<div class="menu navigation">
+				<ul class="nav-list-h">
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href="/" id="home">
+                  <i class="fas fa-home fa-fw"></i>首页
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href="/categories/" id="categories">
+                  <i class="fas fa-folder-open fa-fw"></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href="/tags/" id="tags">
+                  <i class="fas fa-tags fa-fw"></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href="/archives/" id="archives">
+                  <i class="fas fa-archive fa-fw"></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href="/friends/" id="friends">
+                  <i class="fas fa-link fa-fw"></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href="/about/" id="about">
+                  <i class="fas fa-info-circle fa-fw"></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box">
+                  <i class="fas fa-book fa-fw"></i>待整理
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="/categories/" id="categories">
+                  <i class="fas fa-folder-open fa-fw"></i>分类
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="/tags/" id="tags">
+                  <i class="fas fa-tags fa-fw"></i>标签
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="/archives/" id="archives">
+                  <i class="fas fa-archive fa-fw"></i>归档
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="/friends/" id="friends">
+                  <i class="fas fa-link fa-fw"></i>友链
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="/about/" id="about">
+                  <i class="fas fa-info-circle fa-fw"></i>关于
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="搜索...">
+        </form>
+      </div>
+
+			<ul class="switcher nav-list-h">
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href="javascript:void(0)"></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href="javascript:void(0)"></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href="/" id="home">
+                  <i class="fas fa-home fa-fw"></i>首页
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href="/categories/" id="categories">
+                  <i class="fas fa-folder-open fa-fw"></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href="/tags/" id="tags">
+                  <i class="fas fa-tags fa-fw"></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href="/archives/" id="archives">
+                  <i class="fas fa-archive fa-fw"></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href="/friends/" id="friends">
+                  <i class="fas fa-link fa-fw"></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href="/about/" id="about">
+                  <i class="fas fa-info-circle fa-fw"></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box">
+                  <i class="fas fa-book fa-fw"></i>待整理
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="/categories/" id="categories">
+                  <i class="fas fa-folder-open fa-fw"></i>分类
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="/tags/" id="tags">
+                  <i class="fas fa-tags fa-fw"></i>标签
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="/archives/" id="archives">
+                  <i class="fas fa-archive fa-fw"></i>归档
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="/friends/" id="friends">
+                  <i class="fas fa-link fa-fw"></i>友链
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="/about/" id="about">
+                  <i class="fas fa-info-circle fa-fw"></i>关于
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+<script>setLoadingBarProgress(40);</script>
+
+
+
+  <div class="l_body nocover">
+    <div class="body-wrapper">
+      
+
+<div class="l_main">
+  
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class="meta">
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/2016-08-08-52151010/">
+      [原创]字符串问题 ---模板（不定期更新中。）
+    </a>
+  </h1>
+
+
+        
+        <div class="new-meta-box">
+          
+            
+          
+            
+              
+<div class="new-meta-item author">
+  <a href rel="nofollow">
+    <img src>
+    <p></p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class="new-meta-item category">
+    <a href="/categories/csdn/%E6%A8%A1%E6%9D%BF/" rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>CSDN/模板</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class="notlink">
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2016年8月8日</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              
+  <div class="new-meta-item wordcount">
+    <a class="notlink">
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：3.2k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class="notlink">
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：17分钟</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              
+  <div class="new-meta-item browse valine">
+    <a class="notlink">
+      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+      
+      <span id="/2016-08-08-52151010/" class="leancloud_visitors" data-flag-title="[原创]字符串问题 ---模板（不定期更新中。）">
+      <p>
+        <span class="leancloud-visitors-count"></span>
+      </p>
+      </span>
+    </a>
+  </div>
+
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <p>[原创]字符串问题 ---模板（不定期更新中。）</p>
+<p>2016-08-08 13:20:00  <a href="https://me.csdn.net/qq_33184171" target="_blank" rel="external nofollow noopener noreferrer">Tabris_</a> 阅读数：845</p>
+<hr>
+<p>博客爬取于<code>2020-06-14 22:39:14</code><br><strong><em>以下为正文</em></strong></p>
+<p>版权声明：本文为Tabris原创文章，未经博主允许不得私自转载。<br><a href="https://blog.csdn.net/qq_33184171/article/details/52151010" target="_blank" rel="external nofollow noopener noreferrer">https://blog.csdn.net/qq_33184171/article/details/52151010</a></p>
+<a id="more"></a>
+
+<hr>
+<p>#KMP</p>
+<p>算法介绍文章：<a href="http://blog.csdn.net/u011564456/article/details/20862555?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="external nofollow noopener noreferrer">http://blog.csdn.net/u011564456/article/details/20862555?utm_source=tuicool&amp;utm_medium=referral</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">char s1[N],s2[N];</span><br><span class="line">int Next[N];&#x2F;&#x2F;Next[i] 表示从[0~i]中最长公共前缀的长.</span><br><span class="line">void get_next(char *s,int len)&#123;</span><br><span class="line">    for(int i&#x3D;0,j&#x3D;-1;i&lt;&#x3D;len;++i,++j)&#123;</span><br><span class="line">        Next[i]&#x3D;j;</span><br><span class="line">        while(j&gt;&#x3D;0&amp;&amp;s[i]!&#x3D;s[j]) j &#x3D; Next[j];</span><br><span class="line">    &#125;</span><br><span class="line">&#x2F;&#x2F;    for(int i&#x3D;0;i&lt;&#x3D;len;i++) printf(&quot;%d%c&quot;,Next[i],(i&#x3D;&#x3D;len)?&#39;\n&#39;:&#39; &#39;);</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;在串s上找sz</span><br><span class="line">int KMP (char *s,int len,char *sz,int l)&#123;</span><br><span class="line">    int i&#x3D;0,j&#x3D;0,cnt&#x3D;0;</span><br><span class="line">    while(i&lt;len&#x2F;*&amp;&amp;j&lt;l*&#x2F;)&#123;</span><br><span class="line">        if(s[i]&#x3D;&#x3D;sz[j])  i++,j++;</span><br><span class="line">        else&#123;</span><br><span class="line">            if(0&#x3D;&#x3D;j)  i++;</span><br><span class="line">            else      j&#x3D;Next[j];</span><br><span class="line">        &#125;</span><br><span class="line">        if(j&#x3D;&#x3D;l) cnt++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;   return (j&#x3D;&#x3D;l)?(i-l+1):-1; &#x2F;&#x2F;找第一次出现的位置</span><br><span class="line">    return cnt; &#x2F;&#x2F;找出现的个数</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;*</span><br><span class="line">            for(int j&#x3D;0,i&#x3D;0;i&lt;&#x3D;len;i++,j++)&#123;</span><br><span class="line">                ans ^&#x3D; 1LL*(j)*(j)*(len-k-j)*(i-j) ;</span><br><span class="line">                while(j&gt;&#x3D;0&amp;&amp;a[i]!&#x3D;p[j]) j&#x3D;Next[j];</span><br><span class="line">            &#125;</span><br><span class="line">*&#x2F;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="字典树"><a href="#字典树" class="headerlink" title="字典树"></a>字典树</h1><h3 id="实现方法1"><a href="#实现方法1" class="headerlink" title="实现方法1"></a>实现方法1</h3><p>指针动态实现</p>
+<figure class="highlight plain"><figcaption><span>Tree</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;#include &lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line"># include &lt;iostream&gt;</span><br><span class="line"># include &lt;stdio.h&gt;</span><br><span class="line"># include &lt;string.h&gt;</span><br><span class="line"># include &lt;algorithm&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line"># define LL long long int</span><br><span class="line"># define lalal puts(&quot;********&quot;);</span><br><span class="line"></span><br><span class="line">const int N &#x3D; 1010101;</span><br><span class="line">const int Max &#x3D; 26;</span><br><span class="line"></span><br><span class="line">typedef struct node</span><br><span class="line">&#123;</span><br><span class="line">    struct node *next[Max];</span><br><span class="line">    int num;</span><br><span class="line">&#125;Node;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;创建一个新节点</span><br><span class="line">Node *createNew()</span><br><span class="line">&#123;</span><br><span class="line">    Node *p&#x3D;new Node;</span><br><span class="line">    for(int i&#x3D;0;i&lt;Max;i++)</span><br><span class="line">        p-&gt;next[i]&#x3D;NULL;</span><br><span class="line"></span><br><span class="line">    p-&gt;num&#x3D;0;</span><br><span class="line">    return p;</span><br><span class="line">&#125;</span><br><span class="line">Node *head;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;插入一个字符串</span><br><span class="line">void Insert_str(char str[])</span><br><span class="line">&#123;</span><br><span class="line">    int len&#x3D;strlen(str);</span><br><span class="line">  &#x2F;&#x2F;  printf(&quot;len &#x3D; %d--  &quot;,len);</span><br><span class="line">    Node *t,*p&#x3D;head;</span><br><span class="line">    for(int i&#x3D;0;i&lt;len;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        int c&#x3D;str[i]-&#39;a&#39;;</span><br><span class="line">        if( p-&gt;next[c] &#x3D;&#x3D; NULL )</span><br><span class="line">        &#123;</span><br><span class="line">            &#x2F;&#x2F;lalal</span><br><span class="line">            t&#x3D;createNew();</span><br><span class="line">            p-&gt;next[c]&#x3D;t;</span><br><span class="line">        &#125;</span><br><span class="line">        p&#x3D;p-&gt;next[c];</span><br><span class="line">        p-&gt;num++;</span><br><span class="line">       &#x2F;&#x2F; cout&lt;&lt;p-&gt;num&lt;&lt;&quot;-&quot;&lt;&lt;str[i]&lt;&lt;&quot; &quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int Search_str(char str[])</span><br><span class="line">&#123;</span><br><span class="line">    Node *p&#x3D;head;</span><br><span class="line">    int len&#x3D;strlen(str);</span><br><span class="line"></span><br><span class="line">    int counts&#x3D;0;</span><br><span class="line">    for(int i&#x3D;0;i&lt;len;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        int c&#x3D;str[i]-&#39;a&#39;;</span><br><span class="line">        if(p-&gt;next[c]&#x3D;&#x3D;NULL)</span><br><span class="line">        &#123;</span><br><span class="line">        &#x2F;&#x2F;  cout&lt;&lt;&quot;不存在字符串&quot;&lt;&lt;endl;</span><br><span class="line">            counts&#x3D;0;</span><br><span class="line">            return 0;</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">        &#123;</span><br><span class="line">            p&#x3D;p-&gt;next[c];</span><br><span class="line">            counts&#x3D;p-&gt;num;</span><br><span class="line">            &#x2F;&#x2F;printf(&quot;%d &quot;,p-&gt;num);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return counts;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    head &#x3D; createNew();</span><br><span class="line">    char s[11];</span><br><span class="line">    while(gets(s)&amp;&amp;s[0]!&#x3D;&#39;\0&#39;) &#123;Insert_str(s);&#125; &#x2F;&#x2F;一直读入数据，直到遇到空字符串</span><br><span class="line">    while(gets(s))</span><br><span class="line">        printf(&quot;%d\n&quot;,Search_str(s));</span><br><span class="line">    return 0;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="实现方法2"><a href="#实现方法2" class="headerlink" title="实现方法2"></a>实现方法2</h3><p>数组静态实现<br>(Double Arrays Trie-DAT)<br>用两个数组来实现<br>其实本质来看，就和模拟数组差不多少的东西，每次将元素放到尾部。<br>再用另一个二位数组来表示接下来的索引就行了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">const int N &#x3D; 100000+7;</span><br><span class="line">int a[N][字符种类数],f[N],cnt &#x3D; 0;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;插入</span><br><span class="line">inline void insert(String str)&#123;  </span><br><span class="line">    int  len &#x3D; str.length(),now &#x3D; 0;</span><br><span class="line">    for(int i&#x3D;0;i&lt;len;++i)&#123;</span><br><span class="line">        if(!a[now][str[i]-&#39;a&#39;]) a[now][str[i]-&#39;a&#39;] &#x3D; ++cnt;</span><br><span class="line">        now &#x3D; a[now][str[i]-&#39;a&#39;];</span><br><span class="line">        ++f[now];</span><br><span class="line">    &#125;</span><br><span class="line">    return ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="AC自动机"><a href="#AC自动机" class="headerlink" title="AC自动机"></a>AC自动机</h1><p><a href="http://www.cnblogs.com/DrunBee/archive/2012/08/09/2617616.html" target="_blank" rel="external nofollow noopener noreferrer">讲义+例题</a><br><a href="http://www.cnblogs.com/xudong-bupt/p/3433506.html" target="_blank" rel="external nofollow noopener noreferrer">讲解1</a><br><a href="http://blog.csdn.net/mobius_strip/article/details/22549517" target="_blank" rel="external nofollow noopener noreferrer">讲解2</a></p>
+<h3 id="实现方法1-1"><a href="#实现方法1-1" class="headerlink" title="实现方法1"></a>实现方法1</h3><p>指针动态存储</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta"># <span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta"># <span class="meta-keyword">include</span><span class="meta-string">&lt;malloc.h&gt;</span></span></span><br><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">node</span> *<span class="title">next</span>[26];</span>  <span class="comment">//接收的态</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">node</span> *<span class="title">par</span>;</span>   <span class="comment">//父亲节点</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">node</span> *<span class="title">fail</span>;</span>  <span class="comment">//失败节点</span></span><br><span class="line">    <span class="keyword">char</span> inputchar;</span><br><span class="line">    <span class="keyword">int</span> patterTag;    <span class="comment">//是否为可接收态</span></span><br><span class="line">    <span class="keyword">int</span> patterNo;   <span class="comment">//接收态对应的可接受模式</span></span><br><span class="line">&#125;*Tree,TreeNode;</span><br><span class="line"><span class="keyword">char</span> pattern[<span class="number">4</span>][<span class="number">30</span>]=&#123;<span class="string">"nihao"</span>,<span class="string">"hao"</span>,<span class="string">"hs"</span>,<span class="string">"hsr"</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">申请新的节点，并进行初始化</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function">TreeNode *<span class="title">getNewNode</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    TreeNode* tnode=(TreeNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(TreeNode));</span><br><span class="line">    tnode-&gt;fail=<span class="literal">NULL</span>;</span><br><span class="line">    tnode-&gt;par=<span class="literal">NULL</span>;</span><br><span class="line">    tnode-&gt;patterTag=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">26</span>;i++)</span><br><span class="line">        tnode-&gt;next[i]=<span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">return</span> tnode;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">将Trie树中，root节点的分支节点，放入队列</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">int</span>  <span class="title">nodeToQueue</span><span class="params">(Tree root,<span class="built_in">queue</span>&lt;Tree&gt; &amp;myqueue)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">26</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (root-&gt;next[i]!=<span class="literal">NULL</span>)</span><br><span class="line">            myqueue.push(root-&gt;next[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">建立trie树</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function">Tree <span class="title">buildingTree</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    Tree root=getNewNode();</span><br><span class="line">    Tree tmp1=<span class="literal">NULL</span>,tmp2=<span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">4</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        tmp1=root;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;<span class="built_in">strlen</span>(pattern[i]);j++)   <span class="comment">///对每个模式进行处理</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(tmp1-&gt;next[pattern[i][j]-<span class="string">'a'</span>]==<span class="literal">NULL</span>) <span class="comment">///是否已经有分支，Trie共用节点</span></span><br><span class="line">            &#123;</span><br><span class="line">                tmp2=getNewNode();</span><br><span class="line">                tmp2-&gt;inputchar=pattern[i][j];</span><br><span class="line">                tmp2-&gt;par=tmp1;</span><br><span class="line">                tmp1-&gt;next[pattern[i][j]-<span class="string">'a'</span>]=tmp2;</span><br><span class="line">                tmp1=tmp2;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                tmp1=tmp1-&gt;next[pattern[i][j]-<span class="string">'a'</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        tmp1-&gt;patterTag=<span class="number">1</span>;</span><br><span class="line">        tmp1-&gt;patterNo=i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> root;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">建立失败指针</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">buildingFailPath</span><span class="params">(Tree root)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">char</span> inputchar;</span><br><span class="line">    <span class="built_in">queue</span>&lt;Tree&gt; myqueue;</span><br><span class="line">    root-&gt;fail=root;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">26</span>;i++)   <span class="comment">///对root下面的第二层进行特殊处理</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (root-&gt;next[i]!=<span class="literal">NULL</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            nodeToQueue(root-&gt;next[i],myqueue);</span><br><span class="line">            root-&gt;next[i]-&gt;fail=root;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Tree tmp=<span class="literal">NULL</span>,par=<span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">while</span>(!myqueue.empty())</span><br><span class="line">    &#123;</span><br><span class="line">        tmp=myqueue.front();</span><br><span class="line">        myqueue.pop();</span><br><span class="line">        nodeToQueue(tmp,myqueue);</span><br><span class="line"></span><br><span class="line">        inputchar=tmp-&gt;inputchar;</span><br><span class="line">        par=tmp-&gt;par;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">true</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(par-&gt;fail-&gt;next[inputchar-<span class="string">'a'</span>]!=<span class="literal">NULL</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                tmp-&gt;fail=par-&gt;fail-&gt;next[inputchar-<span class="string">'a'</span>];</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(par-&gt;fail==root)</span><br><span class="line">                &#123;</span><br><span class="line">                    tmp-&gt;fail=root;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    par=par-&gt;fail-&gt;par;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">进行多模式搜索，即搜寻AC自动机</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">searchAC</span><span class="params">(Tree root,<span class="keyword">char</span>* str,<span class="keyword">int</span> len)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    TreeNode *tmp=root;</span><br><span class="line">    <span class="keyword">int</span> i=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(i &lt; len)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> pos=str[i]-<span class="string">'a'</span>;</span><br><span class="line">        <span class="keyword">if</span> (tmp-&gt;next[pos]!=<span class="literal">NULL</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            tmp=tmp-&gt;next[pos];</span><br><span class="line">            <span class="keyword">if</span>(tmp-&gt;patterTag==<span class="number">1</span>)    <span class="comment">///如果为接收态</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">cout</span>&lt;&lt;i-<span class="built_in">strlen</span>(pattern[tmp-&gt;patterNo])+<span class="number">1</span>&lt;&lt;<span class="string">'\t'</span>&lt;&lt;tmp-&gt;patterNo&lt;&lt;<span class="string">'\t'</span>&lt;&lt;pattern[tmp-&gt;patterNo]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(tmp==root)</span><br><span class="line">                i++;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                tmp=tmp-&gt;fail;</span><br><span class="line">                <span class="keyword">if</span>(tmp-&gt;patterTag==<span class="number">1</span>)    <span class="comment">//如果为接收态</span></span><br><span class="line">                    <span class="built_in">cout</span>&lt;&lt;i-<span class="built_in">strlen</span>(pattern[tmp-&gt;patterNo])+<span class="number">1</span>&lt;&lt;<span class="string">'\t'</span>&lt;&lt;tmp-&gt;patterNo&lt;&lt;<span class="string">'\t'</span>&lt;&lt;pattern[tmp-&gt;patterNo]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(tmp!=root)</span><br><span class="line">    &#123;</span><br><span class="line">        tmp=tmp-&gt;fail;</span><br><span class="line">        <span class="keyword">if</span>(tmp-&gt;patterTag==<span class="number">1</span>)</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;i-<span class="built_in">strlen</span>(pattern[tmp-&gt;patterNo])+<span class="number">1</span>&lt;&lt;<span class="string">'\t'</span>&lt;&lt;tmp-&gt;patterNo&lt;&lt;<span class="string">'\t'</span>&lt;&lt;pattern[tmp-&gt;patterNo]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">释放内存，DFS</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">destory</span><span class="params">(Tree tree)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(tree==<span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">queue</span>&lt;Tree&gt; myqueue;</span><br><span class="line">    TreeNode *tmp=<span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">    myqueue.push(tree);</span><br><span class="line">    tree=<span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">while</span>(!myqueue.empty())</span><br><span class="line">    &#123;</span><br><span class="line">        tmp=myqueue.front();</span><br><span class="line">        myqueue.pop();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span>; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(tmp-&gt;next[i]!=<span class="literal">NULL</span>)</span><br><span class="line">                myqueue.push(tmp-&gt;next[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">free</span>(tmp);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> a[]=<span class="string">"sdmfhsgnshejfgnihaofhsrnihao"</span>;</span><br><span class="line">    Tree root=buildingTree();   <span class="comment">///建立Trie树</span></span><br><span class="line">    buildingFailPath(root); <span class="comment">///添加失败转移</span></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"待匹配字符串："</span>&lt;&lt;a&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"模式"</span>&lt;&lt;pattern[<span class="number">0</span>]&lt;&lt;<span class="string">" "</span>&lt;&lt;pattern[<span class="number">1</span>]&lt;&lt;<span class="string">" "</span>&lt;&lt;pattern[<span class="number">2</span>]&lt;&lt;<span class="string">" "</span>&lt;&lt;pattern[<span class="number">3</span>]&lt;&lt;<span class="string">" "</span>&lt;&lt;<span class="built_in">endl</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"匹配结果如下："</span>&lt;&lt;<span class="built_in">endl</span>&lt;&lt;<span class="string">"位置\t"</span>&lt;&lt;<span class="string">"编号\t"</span>&lt;&lt;<span class="string">"模式"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    searchAC(root,a,<span class="built_in">strlen</span>(a)); <span class="comment">///搜索</span></span><br><span class="line">    destory(root);  <span class="comment">///释放动态申请内存</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="实现方法2-1"><a href="#实现方法2-1" class="headerlink" title="实现方法2"></a>实现方法2</h3><figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">const <span class="built_in">int</span> MAXN = <span class="number">300000</span>+<span class="number">777</span>;</span><br><span class="line">template&lt;class <span class="built_in">T</span>&gt;</span><br><span class="line">struct AC_AUTO&#123;</span><br><span class="line">    map&lt;<span class="built_in">T</span>,<span class="built_in">int</span>&gt;mp[MAXN];</span><br><span class="line">    typename map&lt;<span class="built_in">T</span>,<span class="built_in">int</span>&gt; <span class="symbol">:</span><span class="symbol">:</span> iterator it;</span><br><span class="line">    <span class="built_in">int</span> fail[MAXN],val[MAXN],Q[MAXN],head,tail,root,cnt;</span><br><span class="line">    void init()&#123;</span><br><span class="line">        cnt=<span class="number">0</span>;</span><br><span class="line">        root=newnode();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">int</span> newnode()&#123;</span><br><span class="line">        mp[cnt].clear();</span><br><span class="line">        val[cnt++]=<span class="number">0</span>;</span><br><span class="line">        return cnt-<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    void insert(<span class="built_in">T</span> s[],<span class="built_in">int</span> <span class="built_in">n</span>)&#123;</span><br><span class="line">        <span class="built_in">int</span> <span class="built_in">now</span>=root;</span><br><span class="line">        for(<span class="built_in">int</span> i=<span class="number">0</span>;i&lt;<span class="built_in">n</span>;i++)&#123;</span><br><span class="line">            <span class="built_in">if</span>(!mp[<span class="built_in">now</span>].<span class="built_in">count</span>(s[i])) </span><br><span class="line">                mp[<span class="built_in">now</span>][s[i]]=newnode();</span><br><span class="line">            <span class="built_in">now</span>=mp[<span class="built_in">now</span>][s[i]];</span><br><span class="line">        &#125;</span><br><span class="line">        val[<span class="built_in">now</span>]++;</span><br><span class="line">    &#125;</span><br><span class="line">    void build()&#123;</span><br><span class="line">        head=tail=<span class="number">0</span>;</span><br><span class="line">        fail[root]=root;</span><br><span class="line">        for(it=mp[root].begin();it!=mp[root].end();++it)&#123;</span><br><span class="line">            fail[it-&gt;<span class="built_in">second</span>]=root;</span><br><span class="line">            Q[tail++]=it-&gt;<span class="built_in">second</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        while(head!=tail)&#123;</span><br><span class="line">            <span class="built_in">int</span> <span class="built_in">now</span>=Q[head++];</span><br><span class="line">            val[<span class="built_in">now</span>]+=val[fail[<span class="built_in">now</span>]];</span><br><span class="line">            for(it=mp[<span class="built_in">now</span>].begin();it!=mp[<span class="built_in">now</span>].end();++it)&#123;</span><br><span class="line">                <span class="built_in">int</span> x=fail[<span class="built_in">now</span>],flag=<span class="number">0</span>;</span><br><span class="line">                while(x!=root)&#123;</span><br><span class="line">                    <span class="built_in">if</span>(mp[x].<span class="built_in">count</span>(it-&gt;first))&#123;</span><br><span class="line">                        fail[it-&gt;<span class="built_in">second</span>]=mp[x][it-&gt;first];</span><br><span class="line">                        flag=<span class="number">1</span>;</span><br><span class="line">                        break;</span><br><span class="line">                    &#125;</span><br><span class="line">                    x=fail[x];</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="built_in">if</span>(x==root &amp;&amp; mp[x].<span class="built_in">count</span>(it-&gt;first))&#123;</span><br><span class="line">                    fail[it-&gt;<span class="built_in">second</span>]=mp[x][it-&gt;first];</span><br><span class="line">                    flag=<span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="built_in">if</span>(!flag) fail[it-&gt;<span class="built_in">second</span>]=root;</span><br><span class="line">                Q[tail++]=it-&gt;<span class="built_in">second</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    LL query(<span class="built_in">T</span> s[],<span class="built_in">int</span> <span class="built_in">n</span>)&#123;</span><br><span class="line">        LL ret=<span class="number">0</span>;</span><br><span class="line">        <span class="built_in">int</span> <span class="built_in">now</span>=root;</span><br><span class="line">        for(<span class="built_in">int</span> i=<span class="number">0</span>;i&lt;<span class="built_in">n</span>;i++)&#123;</span><br><span class="line">            <span class="built_in">int</span> x=<span class="built_in">now</span>,flag=<span class="number">0</span>;</span><br><span class="line">            while(x!=root)&#123;</span><br><span class="line">                <span class="built_in">if</span>(mp[x].<span class="built_in">count</span>(s[i]))&#123;</span><br><span class="line">                    <span class="built_in">now</span>=mp[x][s[i]];</span><br><span class="line">                    flag=<span class="number">1</span>;</span><br><span class="line">                    break;</span><br><span class="line">                &#125;</span><br><span class="line">                x=fail[x];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">if</span>(x==root &amp;&amp; mp[x].<span class="built_in">count</span>(s[i]))&#123;</span><br><span class="line">                <span class="built_in">now</span>=mp[x][s[i]];</span><br><span class="line">                flag=<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">if</span>(!flag) <span class="built_in">now</span>=root;</span><br><span class="line">            ret+=val[<span class="built_in">now</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        return ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">AC_AUTO&lt;<span class="built_in">int</span>&gt; ac;</span><br><span class="line"></span><br><span class="line"><span class="built_in">int</span> a[<span class="built_in">N</span>],b[<span class="built_in">N</span>],<span class="built_in">n</span>,m,<span class="built_in">len</span>,x,pre;</span><br><span class="line"></span><br><span class="line"><span class="built_in">int</span> main()&#123;</span><br><span class="line">    ac.init();</span><br><span class="line">    while()&#123;</span><br><span class="line">        ac.insert(b,<span class="built_in">len</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    ac.build();</span><br><span class="line">    ans = ac.query(a,<span class="built_in">n</span>-<span class="number">1</span>);</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Manacher"><a href="#Manacher" class="headerlink" title="Manacher"></a>Manacher</h1><p>Manacher 是一个能在$O(n)$的复杂度内解决字符串中最长回文子串的问题</p>
+<p><a href="http://www.cnblogs.com/biyeymyhjob/archive/2012/10/04/2711527.html" target="_blank" rel="external nofollow noopener noreferrer">这篇帖子给的挺详细的</a></p>
+<figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/***</span></span><br><span class="line"><span class="comment">str  原字符串</span></span><br><span class="line"><span class="comment">a    进行Manacher算法的为减轻编码难度改进的字符串</span></span><br><span class="line"><span class="comment">p[i] 以a[i]为中心的回文串的半径(含a[i])</span></span><br><span class="line"><span class="comment">id   最长回文子串的中心位置</span></span><br><span class="line"><span class="comment">mx   id+p[id] 最长回文子串的左外边界。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">算法核心的部分</span></span><br><span class="line"><span class="comment">if(mx &gt; i) p[i] = (p[(id&lt;&lt;1)-i]&lt;(mx-i))?p[(id&lt;&lt;1)-1]:(mx-i);</span></span><br><span class="line"><span class="comment">else p[i]=1;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">首先我们知道对于一个字符串进行操作的时候，是从左到右依次进行的</span></span><br><span class="line"><span class="comment">那么由于回文串的对称性，</span></span><br><span class="line"><span class="comment">那么可以确定的是对于a[i]为中心的回文串的长度至少是在以这个最大的回文串中对称的那个位置为中心的回文串的长度,但只能确定的是在最大的回文串的那一部分中的长度,至于之外的就要一个个的匹配了</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">/***</span></span><br><span class="line"><span class="comment">id  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7</span></span><br><span class="line"><span class="comment">a： $ # 1 # 2 # 2 # 1 # 2 # 3 # 2 # 1 #</span></span><br><span class="line"><span class="comment">p_i 1 1 2 1 2 5 2 </span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">char a[<span class="symbol">N</span>],str[<span class="symbol">N</span>];</span><br><span class="line">int p[<span class="symbol">N</span>];</span><br><span class="line"></span><br><span class="line">void train()&#123;</span><br><span class="line">    int len  = <span class="number">0</span>;</span><br><span class="line">    a[len] = <span class="string">'$'</span>, a[++len] = <span class="string">'#'</span>;</span><br><span class="line">    int slen = strlen(str)<span class="number">-1</span>;</span><br><span class="line">    <span class="symbol">Rep</span>(i,<span class="number">0</span>,slen) a[++len] = str[i],a[++len] = <span class="string">'#'</span>;</span><br><span class="line"></span><br><span class="line">    memset(p,<span class="number">0</span>,sizeof(p));</span><br><span class="line">    int id = <span class="number">-1</span>,mx = <span class="number">-1</span>,mxp = <span class="number">-1</span>;</span><br><span class="line">    <span class="symbol">Rep</span>(i,<span class="number">0</span>,len)&#123;</span><br><span class="line">        if(mx &gt; i) p[i] = (p[(id&lt;&lt;<span class="number">1</span>)-i]&lt;(mx-i))?p[(id&lt;&lt;<span class="number">1</span>)-i]:(mx-i);</span><br><span class="line">        else p[i]=<span class="number">1</span>;</span><br><span class="line">        while(a[i-p[i]]==a[i+p[i]]) p[i]++;</span><br><span class="line">        if(p[i]+i&gt;mx) mx=p[i]+i,id=i;</span><br><span class="line">        if(p[i]&gt;mxp) mxp = p[i];</span><br><span class="line">    &#125;</span><br><span class="line">    printf(<span class="string">"%d\n"</span>,mxp<span class="number">-1</span>);</span><br><span class="line">    return ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="后缀数组"><a href="#后缀数组" class="headerlink" title="后缀数组"></a>后缀数组</h1><p>SA[i] = j表示为按照从小到大排名为i的后缀  是以j（下标）开头的后缀</p>
+<p>rank[i] = j 表示为按照从小到大排名  以i为下标开始的后缀  排名为j</p>
+<p>RANK表示你排第几   SA表示排第几的是谁 （记住这个就行）</p>
+<p>height[i] 表示 sa[i] 与 sa[i-1] 的最长公共前缀(LCP) </p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="built_in">int</span> MAXN=<span class="number">400010</span>;</span><br><span class="line"><span class="comment">//以下为倍增算法求后缀数组</span></span><br><span class="line"><span class="built_in">int</span> wa[MAXN],wb[MAXN],wv[MAXN],Ws[MAXN];</span><br><span class="line"><span class="built_in">int</span> cmp(<span class="built_in">int</span> *r,<span class="built_in">int</span> a,<span class="built_in">int</span> b,<span class="built_in">int</span> l) &#123;</span><br><span class="line">    <span class="keyword">return</span> r[a]==r[b]&amp;&amp;r[a+l]==r[b+l];</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**&lt; 传入参数：str,sa,len+1,ASCII_MAX+1 */</span></span><br><span class="line"><span class="built_in">void</span> da(<span class="keyword">const</span> <span class="built_in">int</span> r[],<span class="built_in">int</span> sa[],<span class="built_in">int</span> n,<span class="built_in">int</span> m) &#123;</span><br><span class="line">    <span class="built_in">int</span> i,j,p,*x=wa,*y=wb,*t;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;m; i++) Ws[i]=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;n; i++) Ws[x[i]=r[i]]++;<span class="comment">//以字符的ascii码为下标</span></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;m; i++) Ws[i]+=Ws[i<span class="number">-1</span>];</span><br><span class="line">    <span class="keyword">for</span>(i=n<span class="number">-1</span>; i&gt;=<span class="number">0</span>; i--) sa[--Ws[x[i]]]=i;</span><br><span class="line">    <span class="comment">/*cout&lt;&lt;"SA"&lt;&lt;endl;;</span></span><br><span class="line"><span class="comment">    for(int i=0;i&lt;n+1;i++)cout&lt;&lt;sa[i]&lt;&lt;' ';*/</span></span><br><span class="line">    <span class="keyword">for</span>(j=<span class="number">1</span>,p=<span class="number">1</span>; p&lt;n; j*=<span class="number">2</span>,m=p) &#123;</span><br><span class="line">        <span class="keyword">for</span>(p=<span class="number">0</span>,i=n-j; i&lt;n; i++) y[p++]=i;</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;n; i++) <span class="keyword">if</span>(sa[i]&gt;=j) y[p++]=sa[i]-j;</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;n; i++) wv[i]=x[y[i]];</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;m; i++) Ws[i]=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;n; i++) Ws[wv[i]]++;</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;m; i++) Ws[i]+=Ws[i<span class="number">-1</span>];</span><br><span class="line">        <span class="keyword">for</span>(i=n<span class="number">-1</span>; i&gt;=<span class="number">0</span>; i--) sa[--Ws[wv[i]]]=y[i];</span><br><span class="line">        <span class="keyword">for</span>(t=x,x=y,y=t,p=<span class="number">1</span>,x[sa[<span class="number">0</span>]]=<span class="number">0</span>,i=<span class="number">1</span>; i&lt;n; i++)</span><br><span class="line">            x[sa[i]]=cmp(y,sa[i<span class="number">-1</span>],sa[i],j)?p<span class="number">-1</span>:p++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">int</span> sa[MAXN],Rank[MAXN],height[MAXN];</span><br><span class="line"><span class="comment">//求height数组</span></span><br><span class="line"><span class="comment">/**&lt; str,sa,len */</span></span><br><span class="line"><span class="built_in">void</span> calheight(<span class="keyword">const</span> char *r,<span class="built_in">int</span> *sa,<span class="built_in">int</span> n) &#123;</span><br><span class="line">    <span class="built_in">int</span> i,j,k=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;=n; i++) Rank[sa[i]]=i;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;n; height[Rank[i++]]=k)</span><br><span class="line">        <span class="keyword">for</span>(k?k--:<span class="number">0</span>,j=sa[Rank[i]<span class="number">-1</span>]; r[i+k]==r[j+k]; k++);</span><br><span class="line">    <span class="comment">// Unified  不要乱用，出来检查为了方便的时候 否则容易RE，WA</span></span><br><span class="line"><span class="comment">//    for(int i=n; i&gt;=1; --i) ++sa[i],Rank[i]=Rank[i-1];</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//求lcp(suffixal(i),suffixal(j))</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">int</span> mm[MAXN],dp[MAXN][<span class="number">20</span>];</span><br><span class="line"><span class="built_in">void</span> initrmq(<span class="built_in">int</span> n,<span class="built_in">int</span> b[]) &#123;</span><br><span class="line">    mm[<span class="number">0</span>]=<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="built_in">int</span> i=<span class="number">1</span>; i&lt;=n; i++) &#123;</span><br><span class="line">        mm[i]=((i&amp;(i<span class="number">-1</span>))==<span class="number">0</span>)?mm[i<span class="number">-1</span>]+<span class="number">1</span>:mm[i<span class="number">-1</span>];</span><br><span class="line">        dp[i][<span class="number">0</span>]=b[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="built_in">int</span> j=<span class="number">1</span>; j&lt;=mm[n]; j++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="built_in">int</span> i=<span class="number">1</span>; i+(<span class="number">1</span>&lt;&lt;j)<span class="number">-1</span>&lt;=n; i++)</span><br><span class="line">            dp[i][j]=min(dp[i][j<span class="number">-1</span>],dp[i+(<span class="number">1</span>&lt;&lt;(j<span class="number">-1</span>))][j<span class="number">-1</span>]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">int</span> lcp(<span class="built_in">int</span> x,<span class="built_in">int</span> y) &#123;</span><br><span class="line">    x=Rank[x],y=Rank[y];</span><br><span class="line">    <span class="keyword">if</span>(x&gt;y) swap(x,y); x++;</span><br><span class="line">    <span class="built_in">int</span> k=mm[y-x+<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">return</span> min(dp[x][k],dp[y-(<span class="number">1</span>&lt;&lt;k)+<span class="number">1</span>][k]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">char s[N];</span><br><span class="line"><span class="built_in">int</span> a[N];</span><br><span class="line"></span><br><span class="line"><span class="built_in">int</span> main()&#123;</span><br><span class="line">    scanf(<span class="string">"%s"</span>,s);</span><br><span class="line">    <span class="built_in">int</span> ls = strlen(s);</span><br><span class="line">    <span class="keyword">for</span>(<span class="built_in">int</span> i=<span class="number">0</span>;i&lt;ls;i++) a[i]=s[i]-<span class="string">'a'</span>+<span class="number">1</span>; a[ls]=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    da(a,sa,ls+<span class="number">1</span>,<span class="number">30</span>);</span><br><span class="line">    calheight(a,sa,ls);</span><br><span class="line">    initrmq(ls+<span class="number">1</span>,height);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+            <div class="article_footer">
+              
+                
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class="content">
+    
+      <blockquote>
+        
+          
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            <p>本文永久链接是：<a href="http://tabris.top/2016-08-08-52151010/">http://tabris.top/2016-08-08-52151010/</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  desktop mobile">
+  
+
+  <div class="content article-entry">
+    
+      
+        <div class="fancybox"><img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" data-original="https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/qrcode/wechat.jpg" height="64px"></div>
+      
+    
+      
+        <div class="fancybox"><img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" data-original="https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/qrcode/alipay.jpg" height="64px"></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class="meta" id="footer-meta">
+    <div class="new-meta-box">
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-19T13:14:24+00:00">
+  <a class="notlink">
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年6月19日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/csdn/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>CSDN</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>字符串</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/kmp/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>kmp</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E7%AE%97%E6%B3%95/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>算法</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/sa/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>SA</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/sam/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>SAM</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=http://tabris.top/2016-08-08-52151010/&title=[原创]字符串问题 ---模板（不定期更新中。） - tabris的博客&summary=[原创]字符串问题 ---模板（不定期更新中。）
+2016-08-08 13:20:00  Tabris_ 阅读数：845
+
+博客爬取于2020-06-14 22:39:14以下为正文
+版权声明：本文为Tabris原创文章，未经博主允许不得私自转载。https://blog.csdn.net/qq_33184171/article/details/52151010" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" data-original="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://tabris.top/2016-08-08-52151010/&title=[原创]字符串问题 ---模板（不定期更新中。） - tabris的博客&summary=[原创]字符串问题 ---模板（不定期更新中。）
+2016-08-08 13:20:00  Tabris_ 阅读数：845
+
+博客爬取于2020-06-14 22:39:14以下为正文
+版权声明：本文为Tabris原创文章，未经博主允许不得私自转载。https://blog.csdn.net/qq_33184171/article/details/52151010" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" data-original="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=http://tabris.top/2016-08-08-52151010/&title=[原创]字符串问题 ---模板（不定期更新中。） - tabris的博客&summary=[原创]字符串问题 ---模板（不定期更新中。）
+2016-08-08 13:20:00  Tabris_ 阅读数：845
+
+博客爬取于2020-06-14 22:39:14以下为正文
+版权声明：本文为Tabris原创文章，未经博主允许不得私自转载。https://blog.csdn.net/qq_33184171/article/details/52151010" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" data-original="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+        
+        <div class="hoverbox">
+          <a><img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" data-original="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/wechat.png"></a>
+          <div class="target">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARgAAAEYCAAAAACi5bZQAAADCUlEQVR42u3aQXLCQAwEQP7/6eQBCWVptFAW9N7AYGvblylpHz/Wv+uBAAwYMGDAgFkD8wjXs/9fff+nkOb16ud4P2DAgAEDBgyYdTDlABQWcnW/qw2n9bX3AwYMGDBgwIBZC1MNdNONpc+d1nf5ezBgwIABAwbM18BU/3c6iE0bV2DAgAEDBgwYMKcGcd3nnQ6OYMCAAQMGDJj9MNOglQbEdCB36v5gwIABAwYMmL0w3dVtFL37c7wfMGDAgAEDBswamFetNHhVB3fdIFeuGwwYMGDAgAGzBiZtPE03cPq+3d+Vky8YMGDAgAED5rYwpwZn1YFYd5CWwsTgYMCAAQMGDJh1MKcO5pwC6b6otPF1GfDAgAEDBgwYMLeFmQa60wd90o12G1eXAQ8MGDBgwIABswYmPQBULTANcGl9XWgwYMCAAQMGzD6YbmOnurqDs2lDrBvwnt4XDBgwYMCAAbMOJj2wk0J17zetpxwYwYABAwYMGDBrYNLBVLeh1Q5aRYhuo6p9cAgMGDBgwIABswYmPUCUBrpTG0sHduWABwYMGDBgwIC5HUy30ZQGwGlDbHqQqPziwYABAwYMGDDrYI4dvAkPOncB00YaGDBgwIABA+Z7YarX0wCZBrTp78CAAQMGDBgw+2CmQavbWOo2nNIXEA8KwYABAwYMGDAfC3OqUTQdkHWfWw6uYMCAAQMGDJh1MN3CqoO5UwO40y/ycuAGBgwYMGDAgFkH0x24pcGt2whLg1sbHgwYMGDAgAGzDiYtKG0wdQNadcPT54ABAwYMGDBg9sBM17uC3LSx1R64gQEDBgwYMGBuD/MI16nA14WoDtaqdYABAwYMGDBg9sOcCnTdQtKG2NsCHhgwYMCAAQNmDUx6ICgNYGlDajpwe7ofMGDAgAEDBszXwaSBKg2U7eBWBQcDBgwYMGDAfA3MFOBVQa57PzBgwIABAwbMfph0EHa14er1VwVCMGDAgAEDBsznwkyDVNwYCgdk04Za+eAQGDBgwIABA+a2MBYYMGDAgAEDZtn6BVOi4jsXFgmqAAAAAElFTkSuQmCC">
+          </div>
+        </div>
+      
+    
+      
+        <a class="-mob-share-telegram" title rel="external nofollow noopener noreferrer" href="https://t.me/share/url?url=http://tabris.top/2016-08-08-52151010/&text=[原创]字符串问题 ---模板（不定期更新中。） - tabris的博客" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" data-original="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/telegram.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class="prev" href="/2016-08-10-52169407/">
+                <p class="title"><i class="fas fa-chevron-left" aria-hidden="true"></i>[原创]POJ 2513 Colored Sticks [tire树+并查集]</p>
+                <p class="content">[原创]POJ 2513 Colored Sticks [tire树+并查集]
+2016-08-10 10:57:04  Tabris_ 阅读数：222
+
+博客爬取于2020-06-14 22:...</p>
+              </a>
+            
+            
+              <a class="next" href="/2016-08-08-52148588/">
+                <p class="title">[原创]数据结构 [未完成 待续~待修改]<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class="content">[原创]数据结构 [未完成 待续~待修改]
+2016-08-08 08:35:28  Tabris_ 阅读数：765
+
+博客爬取于2020-06-14 22:39:15以下为正文
+版权声明：本文...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class="fas fa-comments"></i> 评论</p>
+      
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+  <script>
+  // https://github.com/theme-next/hexo-theme-next/blob/master/layout/_third-party/math/mathjax.swig
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.0/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    // 文章章节标题不能为 “MathJax” ，否则会报错。
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+
+
+
+  <script>
+    window.subData = {
+      title: '[原创]字符串问题 ---模板（不定期更新中。）',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class="l_side">
+  
+  
+    
+    
+
+<section class="widget blogger shadow desktop mobile">
+  <div class="content">
+    
+      
+        <a class="avatar flat-box" href="/about/">
+          <img no-lazy src="https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/avatar/avatar.jpg">
+        </a>
+      
+    
+    
+      <div class="text">
+        
+          <h2>tabris's blog</h2>
+        
+        
+          <p>Tabris</p>
+
+        
+        
+          <p><span id="jinrishici-sentence">tabris的博客</span></p>
+          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="/atom.xml" class="social fas fa-rss flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="mailto:tabris.dq@qq.com" class="social fas fa-envelope flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://github.com/tabris233" class="social fab fa-github flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://music.163.com/#/user/home?id=63035382" class="social fas fa-headphones-alt flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+
+  <section class="widget toc-wrapper shadow desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class="name">本文目录</span>
+    
+  </header>
+
+
+    <div class="content">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#实现方法1"><span class="toc-text">实现方法1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现方法2"><span class="toc-text">实现方法2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现方法1-1"><span class="toc-text">实现方法1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现方法2-1"><span class="toc-text">实现方法2</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js theme="#1BCDFC" autoplay="false" volume="0.7" loop="all" order="list" fixed="false" list-max-height="340px" server="netease" type="playlist" id="3175833810" list-folded="true">
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml" class="social fas fa-rss flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="mailto:tabris.dq@qq.com" class="social fas fa-envelope flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/tabris233" class="social fab fa-github flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=63035382" class="social fas fa-headphones-alt flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="external nofollow noopener noreferrer">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+      
+    
+      
+        本站使用
+        <a href="https://volantis.js.org/" target="_blank" class="codename" rel="external nofollow noopener noreferrer">Volantis</a>
+        作为主题，总访问量为
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          次
+        
+      
+    
+      
+        <div class="copyright">
+        <p><a href="http://tabris.top">Copyright © 2017-2020 tabris</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '8px',
+        duration: '800',
+        interval: '100',
+        scale: '1'
+      });
+    });
+  </script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('') {
+          $('').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "XkeYrd6r1FrJXgASPvPJa9Hp-gzGzoHsz",
+    appKey: "de9Yfw8ns8xwf6S9eHOj82Wi",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'true',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.6.5/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-check-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-check-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-times-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-times-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  function pjax_fancybox() {
+    $(".article-entry").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 标准 markdown 描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".article-entry").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  $(function () {
+    pjax_fancybox();
+  });
+</script>
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+<script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
+</html>

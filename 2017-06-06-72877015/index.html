@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme="https://volantis.js.org/#2.6.6">
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+    <title>[原创]北信科1011   K. paulzhou和方程   [组合数学+差分序列]【数学】 - tabris的博客</title>
+  
+    <meta name="keywords" content="CSDN">
+  
+  
+    <meta name="description" content="[原创]北信科1011   K. paulzhou和方程   [组合数学+差分序列]【数学】
+2017-06-06 12:41:52  Tabris_ 阅读数：603
+
+博客爬取于2020-06-14 22:40:06以下为正文
+版权声明：本文为Tabris原创文章，未经博主允许不得私自转载。https://bl...">
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="tabris的博客">
+  
+
+  <!-- import meta -->
+  
+    
+      <meta name="theme-color" content="#FFFFFF">
+    
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  
+
+  <!-- import link -->
+  
+  
+  <link rel="shortcut icon" type="image/x-icon" sizes="16x16 32x32 48x48 64x64" href="/assets/favicon/favicon.ico">
+  <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/assets/favicon/favicon_180.png">
+  <link rel="mask-icon" color="#1BC3FB" href="/assets/favicon/favicon_180.png">
+  <link rel="manifest" href="/manifest.json">
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+  
+  <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+<header class="l_header shadow blur">
+  <div class="container">
+  <div class="wrapper">
+    <div class="nav-sub">
+      <p class="title"></p>
+      <ul class="switcher nav-list-h">
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href="/">
+          
+          
+            <i class="https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/avatar/avatar.jpg"></i>
+          
+          
+            Tabris
+          
+          
+        </a>
+      
+
+			<div class="menu navigation">
+				<ul class="nav-list-h">
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href="/" id="home">
+                  <i class="fas fa-home fa-fw"></i>首页
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href="/categories/" id="categories">
+                  <i class="fas fa-folder-open fa-fw"></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href="/tags/" id="tags">
+                  <i class="fas fa-tags fa-fw"></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href="/archives/" id="archives">
+                  <i class="fas fa-archive fa-fw"></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href="/friends/" id="friends">
+                  <i class="fas fa-link fa-fw"></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href="/about/" id="about">
+                  <i class="fas fa-info-circle fa-fw"></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box">
+                  <i class="fas fa-book fa-fw"></i>待整理
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="/categories/" id="categories">
+                  <i class="fas fa-folder-open fa-fw"></i>分类
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="/tags/" id="tags">
+                  <i class="fas fa-tags fa-fw"></i>标签
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="/archives/" id="archives">
+                  <i class="fas fa-archive fa-fw"></i>归档
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="/friends/" id="friends">
+                  <i class="fas fa-link fa-fw"></i>友链
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="/about/" id="about">
+                  <i class="fas fa-info-circle fa-fw"></i>关于
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="搜索...">
+        </form>
+      </div>
+
+			<ul class="switcher nav-list-h">
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href="javascript:void(0)"></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href="javascript:void(0)"></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href="/" id="home">
+                  <i class="fas fa-home fa-fw"></i>首页
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href="/categories/" id="categories">
+                  <i class="fas fa-folder-open fa-fw"></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href="/tags/" id="tags">
+                  <i class="fas fa-tags fa-fw"></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href="/archives/" id="archives">
+                  <i class="fas fa-archive fa-fw"></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href="/friends/" id="friends">
+                  <i class="fas fa-link fa-fw"></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href="/about/" id="about">
+                  <i class="fas fa-info-circle fa-fw"></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box">
+                  <i class="fas fa-book fa-fw"></i>待整理
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="/categories/" id="categories">
+                  <i class="fas fa-folder-open fa-fw"></i>分类
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="/tags/" id="tags">
+                  <i class="fas fa-tags fa-fw"></i>标签
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="/archives/" id="archives">
+                  <i class="fas fa-archive fa-fw"></i>归档
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="/friends/" id="friends">
+                  <i class="fas fa-link fa-fw"></i>友链
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="/about/" id="about">
+                  <i class="fas fa-info-circle fa-fw"></i>关于
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+<script>setLoadingBarProgress(40);</script>
+
+
+
+  <div class="l_body nocover">
+    <div class="body-wrapper">
+      
+
+<div class="l_main">
+  
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class="meta">
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/2017-06-06-72877015/">
+      [原创]北信科1011   K. paulzhou和方程   [组合数学+差分序列]【数学】
+    </a>
+  </h1>
+
+
+        
+        <div class="new-meta-box">
+          
+            
+          
+            
+              
+<div class="new-meta-item author">
+  <a href rel="nofollow">
+    <img src>
+    <p></p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class="new-meta-item category">
+    <a href="/categories/csdn/%E6%95%B0%E5%AD%A6/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/" rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>CSDN/数学/组合数学</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class="notlink">
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2017年6月6日</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              
+  <div class="new-meta-item wordcount">
+    <a class="notlink">
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：813字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class="notlink">
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：4分钟</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              
+  <div class="new-meta-item browse valine">
+    <a class="notlink">
+      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+      
+      <span id="/2017-06-06-72877015/" class="leancloud_visitors" data-flag-title="[原创]北信科1011   K. paulzhou和方程   [组合数学+差分序列]【数学】">
+      <p>
+        <span class="leancloud-visitors-count"></span>
+      </p>
+      </span>
+    </a>
+  </div>
+
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <p>[原创]北信科1011   K. paulzhou和方程   [组合数学+差分序列]【数学】</p>
+<p>2017-06-06 12:41:52  <a href="https://me.csdn.net/qq_33184171" target="_blank" rel="external nofollow noopener noreferrer">Tabris_</a> 阅读数：603</p>
+<hr>
+<p>博客爬取于<code>2020-06-14 22:40:06</code><br><strong><em>以下为正文</em></strong></p>
+<p>版权声明：本文为Tabris原创文章，未经博主允许不得私自转载。<br><a href="https://blog.csdn.net/qq_33184171/article/details/72877015" target="_blank" rel="external nofollow noopener noreferrer">https://blog.csdn.net/qq_33184171/article/details/72877015</a></p>
+<a id="more"></a>
+
+<hr>
+<p>题目链接:<a href="http://acm.hdu.edu.cn/diy/contest_showproblem.php?cid=31989&amp;pid=1011" target="_blank" rel="external nofollow noopener noreferrer">http://acm.hdu.edu.cn/diy/contest_showproblem.php?cid=31989&amp;pid=1011</a><br>———————————————————————————————————————————<br>K. paulzhou和方程</p>
+<p>Time Limit : 3000/1000ms (Java/Other)   Memory Limit : 65535/102400K (Java/Other)<br>Total Submission(s) : 28   Accepted Submission(s) : 7<br>Font: Times New Roman | Verdana | Georgia<br>Font Size: ← →<br>Problem Description<br>众所周知，paulzhou的数学不太好。现在他有一个问题，希望你帮他解答：<br>给定一元n次方程$f_x=c_0+c_1*x+c_2\dot{}{}x^2+...+c_n\dot{}{}x^n$<br>定义$f_i$的前k项和<br>$$<br>s_k\sum_{i=0}^{k-1}f_i<br>$$<br>现给出n、n+1个各项的系数$c_i$以及k，求$s_k%10007$</p>
+<p>其中<br>Input<br>第1行输入T(1≤T≤10)，代表有T组数据。<br>紧接着每3行分别为n，各项系数，k，输入数据均为正整数。<br>Output<br>每组测试数据输出一行，输出$f_x$的前k-1项和$$<br>s_k\sum_{i=0}^{k-1}f_i<br>$$并对10007取模。<br>Sample Input<br>1<br>4<br>1 -2 3 1 0<br>3<br>Sample Output<br>21<br>Author<br>Kirai<br>———————————————————————————————————————————</p>
+<p>这题用到了差分序列 详情见《组合数学(原书第5版)》翻译版 P169</p>
+<p>查分序列:<br>设有一个序列$h_0,h_1,h_2,,,,h_n$<br>它的一阶差分序列是<br>$$<br>△h_i=h_{i+1}-h_i<br>$$<br>对应二阶差分序列为<br>$$<br>△^2h_i=△h_{i+1}-△h_i<br>$$</p>
+<p>由此得到差分表(看起来很难看啊 意思意思就行了)<br>$$<br>h_0\ \  \ \  h_1\ \  \ \  h_2\ \  \ \  h_3 .....\△h_0\ \  \ \  △h_1\ \  \ \  △h_2.....\...<br>$$<br>根据性质能够得到(证明看书吧..)</p>
+<p>$$<br>h_x=\sum_{i=0}^{n}C(x,i)<em>△^ih_i<br>$$<br>$$<br>\sum_{i=0}^{n} \sum_{j=0}^{k-1}C(j,i)</em>△^ih_0<br>$$<br>由<br>$$<br> \sum_{i=0}^{n}C(m,i) = C(n+1,m+1)<br>$$</p>
+<p>故<br>$$<br>\sum_{i=0}^{n} \sum_{j=0}^{k-1}C(j,i)<em>△^ih_0\ =\sum_{i=0}^{n}C(k,i+1)</em>△^ih_0<br>$$<br><strong>注：取模的时候最好都（x%MOD+MOD）%MOD</strong></p>
+<p>附本题代码<br>———————————————————————————————————————————</p>
+<figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"># include &lt;bits/stdc++.h&gt;</span><br><span class="line">typedef long long int <span class="symbol">LL</span>;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line"># define abs(x) (((x)&gt;<span class="number">0</span>)?(x):-(x))</span><br><span class="line"></span><br><span class="line">const <span class="symbol">LL</span> <span class="symbol">N</span> = <span class="number">1e5</span>+<span class="number">10</span>;</span><br><span class="line">const <span class="symbol">LL</span> <span class="symbol">M</span> = <span class="number">10007</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/******************************************/</span></span><br><span class="line"><span class="symbol">LL</span> n,a[<span class="symbol">N</span>],h[<span class="symbol">N</span>],b[<span class="symbol">N</span>];</span><br><span class="line"><span class="symbol">LL</span> k;</span><br><span class="line"></span><br><span class="line"><span class="symbol">LL</span> fac[<span class="symbol">M</span>],inv[<span class="symbol">M</span>];</span><br><span class="line"></span><br><span class="line"><span class="symbol">LL</span> qmod(<span class="symbol">LL</span> a,<span class="symbol">LL</span> b)&#123;</span><br><span class="line">    <span class="symbol">LL</span> res=<span class="number">1</span>;</span><br><span class="line">    while(b)&#123;</span><br><span class="line">        if(b&amp;<span class="number">1</span>) res=res*a<span class="comment">%M;</span></span><br><span class="line">        b&gt;&gt;=<span class="number">1</span>,a=a*a<span class="comment">%M;</span></span><br><span class="line">    &#125;</span><br><span class="line">    return res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void init()&#123;</span><br><span class="line">    fac[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">    for(<span class="symbol">LL</span> i=<span class="number">1</span>;i&lt;<span class="symbol">M</span>;i++) fac[i]=fac[i<span class="number">-1</span>]*i<span class="comment">%M;</span></span><br><span class="line">    inv[<span class="symbol">M</span><span class="number">-1</span>]=qmod(fac[<span class="symbol">M</span><span class="number">-1</span>],<span class="symbol">M</span><span class="number">-2</span>);</span><br><span class="line">    for(<span class="symbol">LL</span> i=<span class="symbol">M</span><span class="number">-2</span>;i&gt;=<span class="number">0</span>;i--) inv[i]=inv[i+<span class="number">1</span>]*(i+<span class="number">1</span>)<span class="comment">%M;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="symbol">LL</span> <span class="symbol">C</span>(<span class="symbol">LL</span> n,<span class="symbol">LL</span> m)&#123;</span><br><span class="line">    return fac[n]*inv[m]<span class="comment">%M*inv[n-m]%M;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="symbol">LL</span> <span class="symbol">Combination</span>(<span class="symbol">LL</span> n, <span class="symbol">LL</span> m)&#123;</span><br><span class="line">    if(n&lt;m) return <span class="number">0</span>;</span><br><span class="line">    if(n&lt;<span class="symbol">M</span>&amp;&amp;m&lt;<span class="symbol">M</span>) return <span class="symbol">C</span>(n,m);</span><br><span class="line">    return <span class="symbol">Combination</span>(n/<span class="symbol">M</span>,m/<span class="symbol">M</span>)*<span class="symbol">Combination</span>(n<span class="comment">%M,m%M)%M;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    init();</span><br><span class="line">    <span class="symbol">LL</span> <span class="symbol">_</span>;scanf(<span class="string">"%lld"</span>,&amp;<span class="symbol">_</span>);</span><br><span class="line">    while(<span class="symbol">_</span>--)&#123;</span><br><span class="line">        scanf(<span class="string">"%lld"</span>,&amp;n);</span><br><span class="line">        for(<span class="symbol">LL</span> i=<span class="number">0</span>;i&lt;=n;i++) scanf(<span class="string">"%lld"</span>,&amp;a[i]),a[i]=a[i]<span class="comment">%M;</span></span><br><span class="line">        scanf(<span class="string">"%lld"</span>,&amp;k);</span><br><span class="line">        for(<span class="symbol">LL</span> i=<span class="number">0</span>,j,x;i&lt;=n;i++)&#123;</span><br><span class="line">            for(h[i]=j=<span class="number">0</span>,x=<span class="number">1</span>;j&lt;=n;j++)&#123;</span><br><span class="line">                h[i]=(h[i]+a[j]*x<span class="comment">%M)%M;</span></span><br><span class="line">                h[i]=(h[i]<span class="comment">%M+M)%M;x=x*i%M;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        b[<span class="number">0</span>]=h[<span class="number">0</span>];</span><br><span class="line">        for(<span class="symbol">LL</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">            for(<span class="symbol">LL</span> j=<span class="number">0</span>;j&lt;=n-i;j++)</span><br><span class="line">                h[j]=(h[j+<span class="number">1</span>]-h[j]+<span class="symbol">M</span>)<span class="comment">%M;</span></span><br><span class="line">            b[i]=h[<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="symbol">LL</span> ans = <span class="number">0</span>;</span><br><span class="line">        for(<span class="symbol">LL</span> i=<span class="number">0</span>;i&lt;=n;i++)&#123;</span><br><span class="line">            ans = ans + b[i]*<span class="symbol">Combination</span>(k,i+<span class="number">1</span>)<span class="comment">%M;</span></span><br><span class="line">            ans = (ans<span class="comment">%M+M)%M;</span></span><br><span class="line">        &#125;</span><br><span class="line">        printf(<span class="string">"%lld\n"</span>,ans);</span><br><span class="line">    &#125;</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+            <div class="article_footer">
+              
+                
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class="content">
+    
+      <blockquote>
+        
+          
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            <p>本文永久链接是：<a href="http://tabris.top/2017-06-06-72877015/">http://tabris.top/2017-06-06-72877015/</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  desktop mobile">
+  
+
+  <div class="content article-entry">
+    
+      
+        <div class="fancybox"><img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" data-original="https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/qrcode/wechat.jpg" height="64px"></div>
+      
+    
+      
+        <div class="fancybox"><img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" data-original="https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/qrcode/alipay.jpg" height="64px"></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class="meta" id="footer-meta">
+    <div class="new-meta-box">
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-19T13:14:24+00:00">
+  <a class="notlink">
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年6月19日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/csdn/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>CSDN</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=http://tabris.top/2017-06-06-72877015/&title=[原创]北信科1011   K. paulzhou和方程   [组合数学+差分序列]【数学】 - tabris的博客&summary=[原创]北信科1011   K. paulzhou和方程   [组合数学+差分序列]【数学】
+2017-06-06 12:41:52  Tabris_ 阅读数：603
+
+博客爬取于2020-06-14 22:40:06以下为正文
+版权声明：本文为Tabris原创文章，未经博主允许不得私自转载。https://blog.csdn.net/qq_33184171/article/details/72877015" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" data-original="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://tabris.top/2017-06-06-72877015/&title=[原创]北信科1011   K. paulzhou和方程   [组合数学+差分序列]【数学】 - tabris的博客&summary=[原创]北信科1011   K. paulzhou和方程   [组合数学+差分序列]【数学】
+2017-06-06 12:41:52  Tabris_ 阅读数：603
+
+博客爬取于2020-06-14 22:40:06以下为正文
+版权声明：本文为Tabris原创文章，未经博主允许不得私自转载。https://blog.csdn.net/qq_33184171/article/details/72877015" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" data-original="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=http://tabris.top/2017-06-06-72877015/&title=[原创]北信科1011   K. paulzhou和方程   [组合数学+差分序列]【数学】 - tabris的博客&summary=[原创]北信科1011   K. paulzhou和方程   [组合数学+差分序列]【数学】
+2017-06-06 12:41:52  Tabris_ 阅读数：603
+
+博客爬取于2020-06-14 22:40:06以下为正文
+版权声明：本文为Tabris原创文章，未经博主允许不得私自转载。https://blog.csdn.net/qq_33184171/article/details/72877015" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" data-original="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+        
+        <div class="hoverbox">
+          <a><img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" data-original="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/wechat.png"></a>
+          <div class="target">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARgAAAEYCAAAAACi5bZQAAAC9klEQVR42u3aS3KDQAwFQO5/6WSfCoV+EOT07GwDHjWbV9IcX9av60AABgwYMGDArIE5iiv8R8H7f35/9T9nz+vWAwYMGDBgwIDZB5MtNPp9dsNRgOz+oteDAQMGDBgwYPbCXAag4Ofoc7oBsLofMGDAgAEDBgyY6fuzDSwwYMCAAQMGDJjpwrIFdwdtYMCAAQMGDBgw6QFVcXA2daAoGxgfm0SCAQMGDBgwYB6Dya7pRtLdjalwPWDAgAEDBgyYNTDdFT3QE/29OngbqwcMGDBgwIABswamGpCihWSDYfW6qf2DAQMGDBgwYPbBZAPU1AAtGgCj0FUwMGDAgAEDBsw+mPSNxeuiQN0GV/dgERgwYMCAAQNmP0w2mGUD3NRzpxtXYMCAAQMGDJh9MN1C0oOtoUZWt7F1GfDAgAEDBgwYMK+HyQaoKlB1QFc9aDQ2cAMDBgwYMGDAvBZmOlBNN6amDgyNJ18wYMCAAQMGzGtgoo2maOHdA0TdQWD74BAYMGDAgAED5vUw1UFZdtCVDZDVRlcVFgwYMGDAgAGzH6YKkA2I5SDWHNClJ5FgwIABAwYMmNfC3D14m4LIBrmxDh4YMGDAgAED5rUw1cBWDXjVAqeCKBgwYMCAAQNmP0wVoLuR6SA4PnADAwYMGDBgwKyBmW5cTW10auAWPvgEBgwYMGDAgFkLcyTX0wOy6osMw4EBAwYMGDBg1sJUA1e1oXVXcKvWAwYMGDBgwIDZC1PdQPXAz1Tg6wZSMGDAgAEDBsw+mO66q7EUfQHVg0enLwIMGDBgwIABswamG8Cmglg3wE29KDBgwIABAwbMPphuoOuubJDrBrzTz2DAgAEDBgyYtTDdADbV+IoGsz+bRIIBAwYMGDBgPgYmWmh1YNYdrJUHbmDAgAEDBgyYfwNTDlbFF1AFeTzggQEDBgwYMGBuh8kW0G0YZQd4UwEPDBgwYMCAAfM5MHcXlh20dRtY2X2DAQMGDBgwYPbBWGDAgAEDBgyYZesbNjrlDqINk0wAAAAASUVORK5CYII=">
+          </div>
+        </div>
+      
+    
+      
+        <a class="-mob-share-telegram" title rel="external nofollow noopener noreferrer" href="https://t.me/share/url?url=http://tabris.top/2017-06-06-72877015/&text=[原创]北信科1011   K. paulzhou和方程   [组合数学+差分序列]【数学】 - tabris的博客" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" data-original="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/telegram.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class="prev" href="/2017-06-06-72886742/">
+                <p class="title"><i class="fas fa-chevron-left" aria-hidden="true"></i>[原创]hdu 5636 &&bestcoder #74 1002  Shortest Path  [floyd+松弛]【图论+思维】</p>
+                <p class="content">[原创]hdu 5636 &amp;&amp;bestcoder #74 1002  Shortest Path  [floyd+松弛]【图论+思维】
+2017-06-06 19:38:38  ...</p>
+              </a>
+            
+            
+              <a class="next" href="/2017-06-05-72868717/">
+                <p class="title">[原创]2016东北赛 && hdu 5927 Auxiliary Set  [dfs序+BIT]【数据结构】<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class="content">[原创]2016东北赛 &amp;&amp; hdu 5927 Auxiliary Set  [dfs序+BIT]【数据结构】
+2017-06-05 16:38:47  Tabris_ 阅读数：...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class="fas fa-comments"></i> 评论</p>
+      
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+  <script>
+  // https://github.com/theme-next/hexo-theme-next/blob/master/layout/_third-party/math/mathjax.swig
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.0/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    // 文章章节标题不能为 “MathJax” ，否则会报错。
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+
+
+
+  <script>
+    window.subData = {
+      title: '[原创]北信科1011   K. paulzhou和方程   [组合数学+差分序列]【数学】',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class="l_side">
+  
+  
+    
+    
+
+<section class="widget blogger shadow desktop mobile">
+  <div class="content">
+    
+      
+        <a class="avatar flat-box" href="/about/">
+          <img no-lazy src="https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/avatar/avatar.jpg">
+        </a>
+      
+    
+    
+      <div class="text">
+        
+          <h2>tabris's blog</h2>
+        
+        
+          <p>Tabris</p>
+
+        
+        
+          <p><span id="jinrishici-sentence">tabris的博客</span></p>
+          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="/atom.xml" class="social fas fa-rss flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="mailto:tabris.dq@qq.com" class="social fas fa-envelope flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://github.com/tabris233" class="social fab fa-github flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://music.163.com/#/user/home?id=63035382" class="social fas fa-headphones-alt flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+
+
+  
+
+
+</aside>
+
+
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js theme="#1BCDFC" autoplay="false" volume="0.7" loop="all" order="list" fixed="false" list-max-height="340px" server="netease" type="playlist" id="3175833810" list-folded="true">
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml" class="social fas fa-rss flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="mailto:tabris.dq@qq.com" class="social fas fa-envelope flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/tabris233" class="social fab fa-github flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=63035382" class="social fas fa-headphones-alt flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="external nofollow noopener noreferrer">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+      
+    
+      
+        本站使用
+        <a href="https://volantis.js.org/" target="_blank" class="codename" rel="external nofollow noopener noreferrer">Volantis</a>
+        作为主题，总访问量为
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          次
+        
+      
+    
+      
+        <div class="copyright">
+        <p><a href="http://tabris.top">Copyright © 2017-2020 tabris</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '8px',
+        duration: '800',
+        interval: '100',
+        scale: '1'
+      });
+    });
+  </script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('') {
+          $('').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "XkeYrd6r1FrJXgASPvPJa9Hp-gzGzoHsz",
+    appKey: "de9Yfw8ns8xwf6S9eHOj82Wi",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'true',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.6.5/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-check-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-check-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-times-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-times-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  function pjax_fancybox() {
+    $(".article-entry").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 标准 markdown 描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".article-entry").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  $(function () {
+    pjax_fancybox();
+  });
+</script>
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+<script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
+</html>

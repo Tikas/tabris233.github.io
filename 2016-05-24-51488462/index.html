@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme="https://volantis.js.org/#2.6.6">
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+    <title>[原创]数论各种小定理 - tabris的博客</title>
+  
+    <meta name="keywords" content="CSDN,数论">
+  
+  
+    <meta name="description" content="[原创]数论各种小定理
+2016-05-24 10:54:37  Tabris_ 阅读数：1852
+
+博客爬取于2020-06-14 22:39:18以下为正文
+版权声明：本文为Tabris原创文章，未经博主允许不得私自转载。https://blog.csdn.net/qq_33184171/article/de...">
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="tabris的博客">
+  
+
+  <!-- import meta -->
+  
+    
+      <meta name="theme-color" content="#FFFFFF">
+    
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  
+
+  <!-- import link -->
+  
+  
+  <link rel="shortcut icon" type="image/x-icon" sizes="16x16 32x32 48x48 64x64" href="/assets/favicon/favicon.ico">
+  <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/assets/favicon/favicon_180.png">
+  <link rel="mask-icon" color="#1BC3FB" href="/assets/favicon/favicon_180.png">
+  <link rel="manifest" href="/manifest.json">
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+  
+  <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+<header class="l_header shadow blur">
+  <div class="container">
+  <div class="wrapper">
+    <div class="nav-sub">
+      <p class="title"></p>
+      <ul class="switcher nav-list-h">
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href="/">
+          
+          
+            <i class="https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/avatar/avatar.jpg"></i>
+          
+          
+            Tabris
+          
+          
+        </a>
+      
+
+			<div class="menu navigation">
+				<ul class="nav-list-h">
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href="/" id="home">
+                  <i class="fas fa-home fa-fw"></i>首页
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href="/categories/" id="categories">
+                  <i class="fas fa-folder-open fa-fw"></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href="/tags/" id="tags">
+                  <i class="fas fa-tags fa-fw"></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href="/archives/" id="archives">
+                  <i class="fas fa-archive fa-fw"></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href="/friends/" id="friends">
+                  <i class="fas fa-link fa-fw"></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href="/about/" id="about">
+                  <i class="fas fa-info-circle fa-fw"></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box">
+                  <i class="fas fa-book fa-fw"></i>待整理
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="/categories/" id="categories">
+                  <i class="fas fa-folder-open fa-fw"></i>分类
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="/tags/" id="tags">
+                  <i class="fas fa-tags fa-fw"></i>标签
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="/archives/" id="archives">
+                  <i class="fas fa-archive fa-fw"></i>归档
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="/friends/" id="friends">
+                  <i class="fas fa-link fa-fw"></i>友链
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="/about/" id="about">
+                  <i class="fas fa-info-circle fa-fw"></i>关于
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="搜索...">
+        </form>
+      </div>
+
+			<ul class="switcher nav-list-h">
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href="javascript:void(0)"></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href="javascript:void(0)"></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href="/" id="home">
+                  <i class="fas fa-home fa-fw"></i>首页
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href="/categories/" id="categories">
+                  <i class="fas fa-folder-open fa-fw"></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href="/tags/" id="tags">
+                  <i class="fas fa-tags fa-fw"></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href="/archives/" id="archives">
+                  <i class="fas fa-archive fa-fw"></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href="/friends/" id="friends">
+                  <i class="fas fa-link fa-fw"></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href="/about/" id="about">
+                  <i class="fas fa-info-circle fa-fw"></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box">
+                  <i class="fas fa-book fa-fw"></i>待整理
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="/categories/" id="categories">
+                  <i class="fas fa-folder-open fa-fw"></i>分类
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="/tags/" id="tags">
+                  <i class="fas fa-tags fa-fw"></i>标签
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="/archives/" id="archives">
+                  <i class="fas fa-archive fa-fw"></i>归档
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="/friends/" id="friends">
+                  <i class="fas fa-link fa-fw"></i>友链
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="/about/" id="about">
+                  <i class="fas fa-info-circle fa-fw"></i>关于
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+<script>setLoadingBarProgress(40);</script>
+
+
+
+  <div class="l_body nocover">
+    <div class="body-wrapper">
+      
+
+<div class="l_main">
+  
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class="meta">
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/2016-05-24-51488462/">
+      [原创]数论各种小定理
+    </a>
+  </h1>
+
+
+        
+        <div class="new-meta-box">
+          
+            
+          
+            
+              
+<div class="new-meta-item author">
+  <a href rel="nofollow">
+    <img src>
+    <p></p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class="new-meta-item category">
+    <a href="/categories/csdn/%E6%A8%A1%E6%9D%BF/%E6%95%B0%E8%AE%BA/" rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>CSDN/模板/数论</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class="notlink">
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2016年5月24日</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              
+  <div class="new-meta-item wordcount">
+    <a class="notlink">
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：7.5k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class="notlink">
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：39分钟</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              
+  <div class="new-meta-item browse valine">
+    <a class="notlink">
+      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+      
+      <span id="/2016-05-24-51488462/" class="leancloud_visitors" data-flag-title="[原创]数论各种小定理">
+      <p>
+        <span class="leancloud-visitors-count"></span>
+      </p>
+      </span>
+    </a>
+  </div>
+
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <p>[原创]数论各种小定理</p>
+<p>2016-05-24 10:54:37  <a href="https://me.csdn.net/qq_33184171" target="_blank" rel="external nofollow noopener noreferrer">Tabris_</a> 阅读数：1852</p>
+<hr>
+<p>博客爬取于<code>2020-06-14 22:39:18</code><br><strong><em>以下为正文</em></strong></p>
+<p>版权声明：本文为Tabris原创文章，未经博主允许不得私自转载。<br><a href="https://blog.csdn.net/qq_33184171/article/details/51488462" target="_blank" rel="external nofollow noopener noreferrer">https://blog.csdn.net/qq_33184171/article/details/51488462</a></p>
+<a id="more"></a>
+
+<hr>
+<p>#<a href="http://acm.hust.edu.cn/vjudge/contest/view.action?cid=120197#problem/D" target="_blank" rel="external nofollow noopener noreferrer">这里是数论入门题目了  很全面</a>&lt;&lt;-- 戳这里</p>
+<p><strong>欧拉降幂</strong><br><img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" data-original="http://img.blog.csdn.net/20160507152606333?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt></p>
+<p>$A^x%C=A^{x%\phi(C)+\phi(C)}%C,(x≥\phi(C))$</p>
+<p>O(1)解决快速乘取膜</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">LLu</span> qmodx(<span class="type">LLu</span> a,<span class="type">LLu</span> b,<span class="type">LLu</span> <span class="built_in">c</span>)</span><br><span class="line">&#123;</span><br><span class="line">    a%=<span class="built_in">c</span>,b%=<span class="built_in">c</span>;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">c</span>&lt;=<span class="number">1000000000</span>) <span class="keyword">return</span> a*b%<span class="built_in">c</span>;</span><br><span class="line">    <span class="keyword">return</span> (a*b-(<span class="type">LLu</span>)(a/(long double)<span class="built_in">c</span>*b+1e-<span class="number">8</span>)*<span class="built_in">c</span>+<span class="built_in">c</span>)%<span class="built_in">c</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>n = p1^a1<em>p2^a2</em>p3^a3<em>…</em>pk^ak  约束和s = (p1^0+p1^1+p1^2+…p1^a1)(p2^0+p2^1+p2^2+…p2^a2)…(pk^0+pk^1+pk^2+…pk^ak）</p>
+<p>lucas 定理  快速求大组合数  (省内存&amp;省时间)<br><a href="http://blog.csdn.net/skywalkert/article/details/52553048" target="_blank" rel="external nofollow noopener noreferrer">组合数求模</a><br><a href="http://picks.logdown.com/posts/245545-binomial-coefficient-modulo-prime" target="_blank" rel="external nofollow noopener noreferrer">组合数求模</a></p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br></pre></td><td class="code"><pre><span class="line"># <span class="keyword">include</span> &lt;iostream&gt;</span><br><span class="line"># <span class="keyword">include</span> &lt;cstdio&gt;</span><br><span class="line"># <span class="keyword">include</span> &lt;algorithm&gt;</span><br><span class="line"># <span class="keyword">include</span> &lt;cmath&gt;</span><br><span class="line"># <span class="keyword">include</span> &lt;cstring&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line"># define lld  __int64</span><br><span class="line"></span><br><span class="line">lld  n, m, p;</span><br><span class="line"></span><br><span class="line">lld <span class="constructor">Ext_gcd(<span class="params">lld</span> <span class="params">a</span>,<span class="params">lld</span> <span class="params">b</span>,<span class="params">lld</span> &amp;<span class="params">x</span>,<span class="params">lld</span> &amp;<span class="params">y</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">   <span class="keyword">if</span>(b==<span class="number">0</span>) &#123; x=<span class="number">1</span>, y=<span class="number">0</span>; return a; &#125;</span><br><span class="line">   lld ret= <span class="constructor">Ext_gcd(<span class="params">b</span>,<span class="params">a</span>%<span class="params">b</span>,<span class="params">y</span>,<span class="params">x</span>)</span>;</span><br><span class="line">   y-= a/b*x;</span><br><span class="line">   return ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">lld <span class="constructor">Inv(<span class="params">lld</span> <span class="params">a</span>,<span class="params">int</span> <span class="params">m</span>)</span>   <span class="comment">///求逆元</span></span><br><span class="line">&#123;</span><br><span class="line">   lld d,x,y,t= (lld)m;</span><br><span class="line">   d= <span class="constructor">Ext_gcd(<span class="params">a</span>,<span class="params">t</span>,<span class="params">x</span>,<span class="params">y</span>)</span>;</span><br><span class="line">   <span class="keyword">if</span>(d==<span class="number">1</span>) return (x%t+t)%t;</span><br><span class="line">   return -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">lld <span class="constructor">Cm(<span class="params">lld</span> <span class="params">n</span>, <span class="params">lld</span> <span class="params">m</span>, <span class="params">lld</span> <span class="params">p</span>)</span>  <span class="comment">///组合数学</span></span><br><span class="line">&#123;</span><br><span class="line">    lld a=<span class="number">1</span>, b=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(m&gt;n) return <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(m)</span><br><span class="line">    &#123;</span><br><span class="line">        a=(a*n)%p;</span><br><span class="line">        b=(b*m)%p;</span><br><span class="line">        m--;</span><br><span class="line">        n--;</span><br><span class="line">    &#125;</span><br><span class="line">    return (lld)a*<span class="constructor">Inv(<span class="params">b</span>,<span class="params">p</span>)</span>%p;  <span class="comment">///（a/b）%p 等价于 a*（b，p）的逆元</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">int</span> <span class="constructor">Lucas(<span class="params">lld</span> <span class="params">n</span>, <span class="params">lld</span> <span class="params">m</span>, <span class="params">lld</span> <span class="params">p</span>)</span>  <span class="comment">///把n分段递归求解相乘</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(m==<span class="number">0</span>) return <span class="number">1</span>;</span><br><span class="line">    return (lld)<span class="constructor">Cm(<span class="params">n</span>%<span class="params">p</span>,<span class="params">m</span>%<span class="params">p</span>,<span class="params">p</span>)</span>*(lld)<span class="constructor">Lucas(<span class="params">n</span><span class="operator">/</span><span class="params">p</span>,<span class="params">m</span><span class="operator">/</span><span class="params">p</span>,<span class="params">p</span>)</span>%p;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">int</span> main<span class="literal">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">int</span>  T;</span><br><span class="line">    <span class="keyword">while</span>(~scanf(<span class="string">"%I64d%I64d"</span>,&amp;n,&amp;m))</span><br><span class="line">    &#123;</span><br><span class="line">    	n--,m--;</span><br><span class="line">        m--;</span><br><span class="line">        __int64 p=<span class="number">1000000007</span>;</span><br><span class="line"></span><br><span class="line">        printf(<span class="string">"%d\n"</span>,<span class="constructor">Lucas(<span class="params">n</span>+<span class="params">m</span>-1,<span class="params">m</span>,<span class="params">p</span>)</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/****************************************/</span></span><br><span class="line">LL qmul(LL a,LL b,LL c)</span><br><span class="line">&#123;</span><br><span class="line">    LL res=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(b)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(b&amp;<span class="number">1</span>) res=(res+a)%c;</span><br><span class="line">        a=(a+a)%c;</span><br><span class="line">        b&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    return res;</span><br><span class="line">&#125;</span><br><span class="line">LL qmod(LL a,LL b,LL c)</span><br><span class="line">&#123;</span><br><span class="line">    LL res=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(b)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(b&amp;<span class="number">1</span>) res=qmul(res,a,c)%c;</span><br><span class="line">        b&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">        a=qmul(a,a,c)%c;</span><br><span class="line">    &#125;</span><br><span class="line">    return res;</span><br><span class="line">&#125;</span><br><span class="line">LL exgcd(LL a,LL b,LL &amp;x,LL &amp;y) <span class="comment">//ax+by=d</span></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(!b)</span><br><span class="line">    &#123;</span><br><span class="line">        x=<span class="number">1</span>;</span><br><span class="line">        y=<span class="number">0</span>;</span><br><span class="line">        return a;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        LL r=exgcd(b,a%b,x,y);</span><br><span class="line">        LL t = x;</span><br><span class="line">        x = y;</span><br><span class="line">        y=t-a/b*x;</span><br><span class="line">        return r;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">LL <span class="constructor">CRT(LL <span class="params">a</span>[],LL <span class="params">m</span>[],LL <span class="params">len</span>)</span> <span class="comment">//x%m[i]=a[i]</span></span><br><span class="line">&#123;</span><br><span class="line">    LL i,x,y,M,n=<span class="number">1</span>,ret=<span class="number">0</span>;</span><br><span class="line">    for(i=<span class="number">0</span>; i&lt;len; ++i) n*=m<span class="literal">[<span class="identifier">i</span>]</span>;</span><br><span class="line">    for(i=<span class="number">0</span>; i&lt;len; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        M=n/m<span class="literal">[<span class="identifier">i</span>]</span>;</span><br><span class="line">        exgcd(M,m<span class="literal">[<span class="identifier">i</span>]</span>,x,y);</span><br><span class="line">        ret=(ret+qmul(qmul(x,M,n),a<span class="literal">[<span class="identifier">i</span>]</span>,n))%n;</span><br><span class="line">    &#125;</span><br><span class="line">    return (ret+n)%n;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">LL <span class="constructor">C(LL <span class="params">n</span>,LL <span class="params">m</span>,LL <span class="params">p</span>)</span><span class="comment">//组合数模素数P</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(m&gt;n<span class="pattern-match"><span class="operator">||</span>m&lt;0) return 0;</span></span><br><span class="line"><span class="pattern-match">    <span class="keyword">if</span>(n-m&lt;m) m=n-m;</span></span><br><span class="line"><span class="pattern-match">    <span class="constructor">LL</span> a=1,b=1;</span></span><br><span class="line"><span class="pattern-match">    for(<span class="built_in">int</span> i=0; i&lt;m; <span class="operator">++</span>i)</span></span><br><span class="line"><span class="pattern-match">    &#123;</span></span><br><span class="line"><span class="pattern-match">        a=a<span class="operator">*</span>(n-i)%p;</span></span><br><span class="line"><span class="pattern-match">        b=b<span class="operator">*</span>(m-i)%p;</span></span><br><span class="line"><span class="pattern-match">    &#125;</span></span><br><span class="line"><span class="pattern-match">    return a<span class="operator">*</span>qmod(b,p-2,p)%p;</span></span><br><span class="line"><span class="pattern-match">&#125;</span></span><br><span class="line"><span class="pattern-match"></span></span><br><span class="line"><span class="pattern-match"><span class="constructor">LL</span> <span class="constructor">Lucas(LL <span class="params">n</span>,LL <span class="params">m</span>,LL <span class="params">p</span>)</span></span></span><br><span class="line"><span class="pattern-match">&#123;</span></span><br><span class="line"><span class="pattern-match">    <span class="constructor">LL</span> ans=1;</span></span><br><span class="line"><span class="pattern-match">    <span class="keyword">while</span>(n<span class="operator">&amp;&amp;</span>m<span class="operator">&amp;&amp;</span>ans)</span></span><br><span class="line"><span class="pattern-match">    &#123;</span></span><br><span class="line"><span class="pattern-match">        ans=ans<span class="operator">*</span><span class="constructor">C(<span class="params">n</span>%<span class="params">p</span>,<span class="params">m</span>%<span class="params">p</span>,<span class="params">p</span>)</span>%p;</span></span><br><span class="line"><span class="pattern-match">        n<span class="operator">/</span>=p,m<span class="operator">/</span>=p;</span></span><br><span class="line"><span class="pattern-match">    &#125;</span></span><br><span class="line"><span class="pattern-match">    return ans;</span></span><br><span class="line"><span class="pattern-match">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="余数问题"><a href="#余数问题" class="headerlink" title="余数问题"></a>余数问题</h1><p><a href="http://vjudge.net/contest/132006#overview" target="_blank" rel="external nofollow noopener noreferrer">这里是余数问题的练习题目</a></p>
+<h3 id="余数定理"><a href="#余数定理" class="headerlink" title="余数定理"></a>余数定理</h3><blockquote>
+<p>计算$\left(\dfrac {a}{b}\right)\mod{c}$  其中b能整除a<br>如果b与c互素，则$(a/b)%c=a*b^{phi(c)-1}%c$<br>如果b与c不互素，则$(a/b)%c=(a%bc)/b$<br>对于b与c互素和不互素都有$(a/b)%c=(a%bc)/b$成立</p>
+</blockquote>
+<h3 id="扩展欧几里得"><a href="#扩展欧几里得" class="headerlink" title="扩展欧几里得"></a>扩展欧几里得</h3><p>这里是扩展欧几里德入门的题目了 做完这些我觉得才明白了扩展欧几里德的应用 <a href="http://acm.hust.edu.cn/vjudge/contest/117544#overview" target="_blank" rel="external nofollow noopener noreferrer">传送阵&lt;&lt;---</a></p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># include &lt;iostream&gt;</span></span><br><span class="line"><span class="comment"># include &lt;stdio.h&gt;</span></span><br><span class="line"><span class="comment"># include &lt;algorithm&gt;</span></span><br><span class="line"><span class="comment"># include &lt;string.h&gt;</span></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line"><span class="comment"># define LL long long int</span></span><br><span class="line"><span class="comment"># define _LL __int64</span></span><br><span class="line"></span><br><span class="line">LL exgcd_euclid(LL a,LL b,LL &amp;x,LL &amp;y)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="attribute">b</span>==0)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attribute">x</span>=1;</span><br><span class="line">        <span class="attribute">y</span>=0;</span><br><span class="line">        return a;</span><br><span class="line">    &#125;</span><br><span class="line">    LL <span class="attribute">r</span>=exgcd_euclid(b,a%b,x,y);</span><br><span class="line">    LL <span class="attribute">t</span>=x;</span><br><span class="line">    <span class="attribute">x</span>=y;</span><br><span class="line">    <span class="attribute">y</span>=t-a/b*y;</span><br><span class="line">    return r;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">LL exgcd(LL m,LL &amp;x,LL n,LL &amp;y)</span><br><span class="line">&#123;</span><br><span class="line">    LL x1,x0,y1,y0;</span><br><span class="line">    <span class="attribute">x0</span>=1,y0=0;</span><br><span class="line">    <span class="attribute">x1</span>=0,y1=1;</span><br><span class="line">    LL r=(m%n+n)%n;</span><br><span class="line">    LL q=(m-r)/n;</span><br><span class="line">    <span class="attribute">x</span>=0,y=1;</span><br><span class="line">    <span class="keyword">while</span>(r)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attribute">x</span>=x0-q*x1,y=y0-q*y1,x0=x1,y0=y1;</span><br><span class="line">        <span class="attribute">x1</span>=x,y1=y;</span><br><span class="line">        <span class="attribute">m</span>=n,n=r,r=m%n;</span><br><span class="line">        q=(m-r)/n;</span><br><span class="line">    &#125;</span><br><span class="line">    return n;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    LL ar,br,cr;</span><br><span class="line">    LL x,y,m,n,l;</span><br><span class="line">    <span class="keyword">while</span>(~scanf(<span class="string">"%lld%lld%lld%lld%lld"</span>,&amp;x,&amp;y,&amp;m,&amp;n,&amp;l))</span><br><span class="line">    &#123;</span><br><span class="line">        LL <span class="attribute">M</span>=exgcd(n-m,ar,l,br);</span><br><span class="line">        <span class="keyword">if</span>((x-y)%M||<span class="attribute">m</span>==n)</span><br><span class="line">            printf(<span class="string">"Impossible\n"</span>);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            LL <span class="attribute">s</span>=l/M;</span><br><span class="line">            <span class="attribute">ar</span>=ar*((x-y)/M);</span><br><span class="line">            ar=(ar%s+s)%s;</span><br><span class="line">            printf(<span class="string">"%lld\n"</span>,ar);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="逆元"><a href="#逆元" class="headerlink" title="逆元"></a>逆元</h3><p>定义:$a\times x \equiv{1}( \mod{m})$,称x为a关于m的逆元<br>对于方程$\left(\dfrac {a}{x}\right)\mod{c}$ 我们可以转化为求$\left({a}\times{x^{-1} }\right)\mod{c}$<br>由于${x}\times {x^{-1} } \equiv{1}( \mod{m})$恒成立,所以除法取模就可以将被除数转化为乘上被除数的逆元即可.</p>
+<h5 id="求逆元的两种方法"><a href="#求逆元的两种方法" class="headerlink" title="求逆元的两种方法"></a>求逆元的两种方法</h5><ol>
+<li>扩展欧几里德<br>$\left(\dfrac {a}{x}\right) \equiv ? (\mod{c})\=&gt; a \equiv ? \times x  (\mod{c}) \ =&gt; a = ?\times {x} + k\times{c}$<br>通过公式的推到，最后得到一个明显的同余式<br>而?的最小正整数解就是x的逆元<figure class="highlight gml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">void exgcd(int a,int b,int &amp;d,int &amp;<span class="symbol">x</span>,int &amp;<span class="symbol">y</span>)&#123;</span><br><span class="line">    <span class="keyword">if</span>(b==<span class="number">0</span>) &#123;</span><br><span class="line">        <span class="symbol">x</span> = <span class="number">1</span>,<span class="symbol">y</span> = <span class="number">0</span>,d=a;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    exgcd(b,a%b,d,<span class="symbol">x</span>,<span class="symbol">y</span>);</span><br><span class="line">    int t = <span class="symbol">x</span>;</span><br><span class="line">    <span class="symbol">x</span> = <span class="symbol">y</span>;</span><br><span class="line">    <span class="symbol">y</span> = t - ( a / b ) * <span class="symbol">y</span>;</span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line">int inv(int a)&#123;</span><br><span class="line">    int <span class="symbol">x</span>,<span class="symbol">y</span>,d;</span><br><span class="line">    exgcd(a,MOD,d,<span class="symbol">x</span>,<span class="symbol">y</span>);</span><br><span class="line">    <span class="keyword">if</span>(d==<span class="number">1</span>)  <span class="keyword">return</span> (<span class="symbol">x</span>%MOD+MOD)%MOD;   <span class="comment">//返回最小正整数解</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;  <span class="comment">//不存在逆元</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">注意只有当a与mod互质即 gcd(a,mod) 时才有逆元,否则不存在逆元</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure></li>
+<li>费马小定理<blockquote>
+<p>费马小定理 :${a}^{p-1} \equiv 1 (\mod p)$.</p>
+</blockquote>
+</li>
+</ol>
+<p>可以转化为${a}\times{a}^{p-2} \equiv 1 (\mod p)$.所以${a}^{p-2}$就是a关于p的逆元(!!!!!p必须为素数)</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> <span class="built_in">qmod</span>(<span class="built_in">int</span> a,<span class="built_in">int</span> b)&#123;</span><br><span class="line">    <span class="built_in">int</span> res = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(b)&#123;</span><br><span class="line">        <span class="keyword">if</span>(b&amp;<span class="number">1</span>) res=res*a%<span class="built_in">MOD</span>;</span><br><span class="line">        b&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">        a=a*a%<span class="built_in">MOD</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">int</span> inv(<span class="built_in">int</span> a)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">qmod</span>(a,<span class="built_in">MOD</span>-<span class="number">2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="求解高次同余方程"><a href="#求解高次同余方程" class="headerlink" title="求解高次同余方程"></a>求解高次同余方程</h3><p>还是用 babystep_gaintstep算法求解。但是这题并不能用POJ_2417的算法，直接套该<br>算法，下面简要说明一下不能用的原因。首先我们有必要归纳一下用babystep算法解题<br>的步骤：<br>(1) 求M = ceil( sqrt(C) ) ；<br>(2) for(i=0;i&lt; M;i++)   hash( i , A^i ) ；<br>(3) 求D = A^M%C；<br>(4) r = 1 ; for( i = 0 ; i &lt; M ; i++ )  ex_gcd(r , C , x , y ) ; res = x * B % C  ; jj = find( res)<br>如果找到了这时候的jj，则答案就是i<em>M+jj，如果没有找到，则res = res * D % C，继续循<br>环查找，如果最终都没有找到，则输出无解。 在上述的步骤中，如果题目中没有告诉我们<br>gcd(A , C) = 1，则我们上述的方法是错误的，原因就在于第4步，求res的时候。因为如果<br>我们无法保证gcd(A , C) = 1 ，也就不能保证gcd(r ,C) = 1（因为D=A^M, r = D^i），所有在<br>用 扩展欧几里得求出r<em>x + C</em>y = gcd(r,C ) 的一个解x0之后，原方程:r<em>x+C</em>y = B的解<br>x = x0 * B / gcd(r,C) + i*C / gcd(r,C) ，但是我们这个时候并不能计算出gcd(r,C)，因为此时<br>的r本来就是经过取余之后得出的，并不能直接用来求gcd，因此我们上述的普通babystep<br>算法就会出错了。<br>      这样我们就要换一种处理的方法了，这里介绍一种AC大牛博客上的一种“消因子”的方法，<br>具体内容请看这里：AC大牛。经过上面的分析我们很清楚接下去的处理应该从哪方面着<br>手，就是应该从不能求出gcd(r , C)入手。一种思想就是既然无法求， 那我每次只要保证<br>gcd(r, C) = 1那样就可以想普通babystep一样求解了，既然要保证gcd(r,C) =1 ，而<br>r = (A^M)^i,因此归根到底还是要求gcd( A , C )  = 1。下面就是从AC大牛博客上参考的“消因子”<br>法了，每次我们 都消去A,C的一个因子，然后对B,C, D进行如下的处理：B/=tmp;C/=tmp ;<br>D = D</em> A/tmp%C ，这样经过b轮的消因子之后，gcd(A,C) = 1， 接下去我们就可以用普通<br>的babystep求解出方程：A^x = B&#39;( mod C&#39; ) 的解 res1， 原方程的解就是 res = res1 + b。<br>下面给出这种方法正确的简要证明；一开始我们要求的方程是：A^x = B( mod C )，也就是<br>求一个最小的x，使得A^x + C<em>y = B，通过消因子， 我们不断在方程两遍消去gcd(A,C)，这<br>样方程就可以变成 D</em>A^x1 + C&#39;<em>y1 = B&#39;，很简单就可以证明上式中 x = x1 + b ; y = y1 的（只要<br>在方程的两边分别将消去的因子乘回去等式还是保持不变的）。这样我们的问题就转化为了<br>求x1和y1，即D</em>A^x1 = B&#39;( mod C&#39; )，此时gcd( A , C&#39;) = 1，这样我们就可以用普通的babystep<br>求出上述式子的解x1，同时也就求出了x，这样本题就解决了。<br>       但是上述的方法还是有一个bug的，也就是说，我们用babystep求出的x1&gt;=0，所以上述的<br>方法只能求出x &gt;= b的解，这样我们自然就会想到如果有一个解x &lt; b怎么办，上述方法就会出<br>先错误了，因此我们这里还需要改进。考虑b的最大值是多少，考虑每次我们消去的因子数都<br>最小也就是2，这样我们就可以得到b的最大值就是log(C)，这样我们只要保证每次log(C)之内的<br>解都特判一下， 就不会出现我们刚才的问题了， 所以我们要在进行上述处理之前进行一次for<br>循环 ，特判0 - log(C)直接的x是否能成为解，接下去再用上述的“消因子”算法。<br>     最后不得不佩服发明这种算法的人的神奇，将O(C)复杂度的判断，分两级判断将复杂度降低<br>到O( sqrt(C) )，所以就是为什么叫&quot; babystep_gaintstep &quot;了， 哈哈。</p>
+<h4 id="babystep算法模板"><a href="#babystep算法模板" class="headerlink" title="babystep算法模板"></a>babystep算法模板</h4><figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># define <span class="constructor">CC(<span class="params">m</span> ,<span class="params">what</span>)</span> memset(m , what , sizeof(m))</span><br><span class="line">LL A, B ,C ;</span><br><span class="line">const <span class="built_in">int</span> NN = <span class="number">99991</span> ;</span><br><span class="line"><span class="built_in">bool</span> has<span class="literal">[NN]</span> ;</span><br><span class="line"><span class="built_in">int</span> idx<span class="literal">[NN]</span> , <span class="keyword">val</span><span class="literal">[NN]</span> ;</span><br><span class="line"></span><br><span class="line">void insert<span class="constructor">_(<span class="params">int</span> <span class="params">id</span> , LL <span class="params">vv</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    LL v = vv % NN ;</span><br><span class="line">    <span class="keyword">while</span>( has<span class="literal">[<span class="identifier">v</span>]</span><span class="operator"> &amp;&amp; </span><span class="keyword">val</span><span class="literal">[<span class="identifier">v</span>]</span>!=vv)</span><br><span class="line">    &#123;</span><br><span class="line">        v++ ;</span><br><span class="line">        <span class="keyword">if</span>(v<span class="operator"> == </span>NN) v-=NN ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>( !has<span class="literal">[<span class="identifier">v</span>]</span> )</span><br><span class="line">    &#123;</span><br><span class="line">        has<span class="literal">[<span class="identifier">v</span>]</span> = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">val</span><span class="literal">[<span class="identifier">v</span>]</span> = vv ;</span><br><span class="line">        idx<span class="literal">[<span class="identifier">v</span>]</span> = id ;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">int</span> findi(LL vv)</span><br><span class="line">&#123;</span><br><span class="line">    LL v = vv % NN ;</span><br><span class="line">    <span class="keyword">while</span>( has<span class="literal">[<span class="identifier">v</span>]</span><span class="operator"> &amp;&amp; </span><span class="keyword">val</span><span class="literal">[<span class="identifier">v</span>]</span>!=vv)</span><br><span class="line">    &#123;</span><br><span class="line">        v++ ;</span><br><span class="line">        <span class="keyword">if</span>(v<span class="operator"> == </span>NN) v-=NN ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>( !has<span class="literal">[<span class="identifier">v</span>]</span> )  return -<span class="number">1</span>;</span><br><span class="line">    return idx<span class="literal">[<span class="identifier">v</span>]</span> ;</span><br><span class="line">&#125;</span><br><span class="line">void ex<span class="constructor">_gcd(LL <span class="params">a</span> , LL <span class="params">b</span> , LL&amp; <span class="params">x</span> , LL&amp; <span class="params">y</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(b<span class="operator"> == </span><span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        x = <span class="number">1</span> ;</span><br><span class="line">        y = <span class="number">0</span> ;</span><br><span class="line">        return ;</span><br><span class="line">    &#125;</span><br><span class="line">    ex<span class="constructor">_gcd(<span class="params">b</span> , <span class="params">a</span>%<span class="params">b</span> , <span class="params">x</span>, <span class="params">y</span>)</span> ;</span><br><span class="line">    LL t = x ;</span><br><span class="line">    x = y;</span><br><span class="line">    y = t - a/b*y ;</span><br><span class="line">&#125;</span><br><span class="line">LL gcd(LL a,LL b)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">while</span>( a%b != <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        LL c = a ;</span><br><span class="line">        a = b ;</span><br><span class="line">        b = c % b ;</span><br><span class="line">    &#125;</span><br><span class="line">    return b ;</span><br><span class="line">&#125;</span><br><span class="line">LL baby<span class="constructor">_step(LL A, LL B , LL C)</span></span><br><span class="line">&#123;</span><br><span class="line">    LL ans = <span class="number">1</span> ;</span><br><span class="line">    for(LL i=<span class="number">0</span>; i&lt;=<span class="number">50</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(ans<span class="operator"> == </span>B)    return i ;</span><br><span class="line">        ans = ans<span class="operator"> * </span>A % C ;</span><br><span class="line">    &#125;</span><br><span class="line">    LL tmp , d = <span class="number">0</span> ;</span><br><span class="line">    LL D = <span class="number">1</span> % C ;</span><br><span class="line">    <span class="keyword">while</span>( (tmp=gcd(A,C)) != <span class="number">1</span> )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(B % tmp) return -<span class="number">1</span> ;</span><br><span class="line">        d++ ;</span><br><span class="line">        B/=tmp ;</span><br><span class="line">        C/=tmp ;</span><br><span class="line">        D = D*A/tmp%C ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="constructor">CC( <span class="params">has</span> , 0)</span> ;</span><br><span class="line">    <span class="constructor">CC( <span class="params">idx</span>, -1)</span> ;</span><br><span class="line">    <span class="constructor">CC(<span class="params">val</span> , -1)</span> ;</span><br><span class="line">    LL M = ceil( sqrt(C*<span class="number">1.0</span>) ) ;</span><br><span class="line">    LL rr = <span class="number">1</span> ;</span><br><span class="line">    for(<span class="built_in">int</span> i=<span class="number">0</span>; i&lt;M; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        insert<span class="constructor">_(<span class="params">i</span>, <span class="params">rr</span>)</span> ;</span><br><span class="line">        rr = rr<span class="operator"> * </span>A % C ;</span><br><span class="line">    &#125;</span><br><span class="line">    LL x, y ;</span><br><span class="line">    for(<span class="built_in">int</span> i=<span class="number">0</span>; i&lt;M; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        ex<span class="constructor">_gcd(D, C , <span class="params">x</span>, <span class="params">y</span>)</span> ;</span><br><span class="line">        LL r = x<span class="operator"> * </span>B % C;</span><br><span class="line">        r = (r % C + C) % C ;</span><br><span class="line">        <span class="built_in">int</span> jj = findi( r ) ;</span><br><span class="line">        <span class="keyword">if</span>(jj != -<span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            return  <span class="constructor">LL(<span class="params">i</span>)</span>*M + <span class="constructor">LL(<span class="params">jj</span>)</span> + d ;</span><br><span class="line">        &#125;</span><br><span class="line">        D = D<span class="operator"> * </span>rr % C ;</span><br><span class="line">    &#125;</span><br><span class="line">    return -<span class="number">1</span> ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="素数测试"><a href="#素数测试" class="headerlink" title="素数测试"></a>素数测试</h1><h3 id="线性筛法打素数表"><a href="#线性筛法打素数表" class="headerlink" title="线性筛法打素数表"></a>线性筛法打素数表</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> prime[<span class="number">20000</span>],kp=<span class="number">0</span>;</span><br><span class="line"><span class="built_in">int</span> Is_or[<span class="number">65536</span>];</span><br><span class="line"><span class="built_in">void</span> Prime()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">int</span> n =<span class="number">65536</span>; <span class="comment">//2~n之间的素数</span></span><br><span class="line">    kp=<span class="number">0</span>;</span><br><span class="line">    memset(Is_or,<span class="number">1</span>,sizeof(Is_or));</span><br><span class="line">    Is_or[<span class="number">0</span>]=Is_or[<span class="number">1</span>]=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="built_in">int</span> i=<span class="number">2</span>;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(Is_or[i])    prime[kp++]=i;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="built_in">int</span> j=<span class="number">0</span>;j&lt;kp&amp;&amp;i*prime[j]&lt;n;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            Is_or[i*prime[j]]=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">if</span>(i%prime[j]==<span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="随机性素数测试-miller-rabbin"><a href="#随机性素数测试-miller-rabbin" class="headerlink" title="随机性素数测试    miller-rabbin"></a>随机性素数测试    miller-rabbin</h3><p>普通的素数测试我们有O(√ n)的试除算法。事实上，我们有O(slog³n)的算法。</p>
+<p>定理一：假如p是质数，且(a,p)=1，那么a^(p-1)≡1(mod p)。即假如p是质数，且a,p互质，那么a的(p-1)次方除以p的余数恒等于1。（费马小定理）</p>
+<p>该定理的逆命题是不一定成立的，但是令人可喜的是大多数情况是成立的。</p>
+<p>于是我们就得到了一个定理的直接应用，对于待验证的数p，我们不断取a∈［1，p-1]且a∈Z，验证a^(p-1) mod p是否等于1，不是则p果断不是素数，共取s次。其中a^(p-1) mod p可以通过把p-1写成二进制，由(a<em>b)mod c=(a mod c)</em>b mod c，可以在t=log(p-1)的时间内计算出解，如考虑整数相乘的复杂度，则一次计算的总复杂度为log³(p-1)。这个方法叫快速幂取模。</p>
+<p>为了提高算法的准确性，我们又有一个可以利用的定理。<br>定理二：对于0 &lt; x &lt; p，x^2 mod p =1 =&gt; x=1或p-1。</p>
+<p>我们令p-1=(2^t)*u，即p-1为u二进制表示后面跟t个0。我们先计算出x[0]=a^u mod p ，再平方t次并在每一次模p，每一次的结果记为x[i]，最后也可以计算出a^(p-1) mod p。若发现x[i]=1而x[i-1]不等于1也不等于p-1，则发现p果断不是素数。</p>
+<p>可以证明，使用以上两个定理以后，检验s次出错的概率至多为2^(-s)，所以这个算法是很可靠的。</p>
+<p>需要注意的是，为了防止溢出（特别大的数据），a*b mod c 也应用类似快速幂取模的方法计算。当然，数据不是很大就可以免了。</p>
+<p>下面是我的程序。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//****************************************************************</span></span><br><span class="line"><span class="comment">// Miller_Rabin 算法进行素数测试</span></span><br><span class="line"><span class="comment">//速度快，而且可以判断 &lt;2^63的数</span></span><br><span class="line"><span class="comment">//****************************************************************</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> S=<span class="number">20</span>;<span class="comment">//随机算法判定次数，S越大，判错概率越小</span></span><br><span class="line"><span class="comment">//计算 (a*b)%c.   a,b都是long long的数，直接相乘可能溢出的</span></span><br><span class="line"><span class="comment">//  a,b,c &lt;2^63</span></span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">mult_mod</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> a,<span class="keyword">long</span> <span class="keyword">long</span> b,<span class="keyword">long</span> <span class="keyword">long</span> c)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    a%=c;</span><br><span class="line">    b%=c;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> ret=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(b)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(b&amp;<span class="number">1</span>)&#123;ret+=a;ret%=c;&#125;</span><br><span class="line">        a&lt;&lt;=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(a&gt;=c)a%=c;</span><br><span class="line">        b&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//计算  x^n %c</span></span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">pow_mod</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> x,<span class="keyword">long</span> <span class="keyword">long</span> n,<span class="keyword">long</span> <span class="keyword">long</span> mod)</span><span class="comment">//x^n%c</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n==<span class="number">1</span>)<span class="keyword">return</span> x%mod;</span><br><span class="line">    x%=mod;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> tmp=x;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> ret=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(n)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(n&amp;<span class="number">1</span>) ret=mult_mod(ret,tmp,mod);</span><br><span class="line">        tmp=mult_mod(tmp,tmp,mod);</span><br><span class="line">        n&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//以a为基,n-1=x*2^t      a^(n-1)=1(mod n)  验证n是不是合数</span></span><br><span class="line"><span class="comment">//一定是合数返回true,不一定返回false</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">check</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> a,<span class="keyword">long</span> <span class="keyword">long</span> n,<span class="keyword">long</span> <span class="keyword">long</span> x,<span class="keyword">long</span> <span class="keyword">long</span> t)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> ret=pow_mod(a,x,n);</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> last=ret;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=t;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        ret=mult_mod(ret,ret,n);</span><br><span class="line">        <span class="keyword">if</span>(ret==<span class="number">1</span>&amp;&amp;last!=<span class="number">1</span>&amp;&amp;last!=n<span class="number">-1</span>) <span class="keyword">return</span> <span class="literal">true</span>;<span class="comment">//合数</span></span><br><span class="line">        last=ret;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(ret!=<span class="number">1</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Miller_Rabin()算法素数判定</span></span><br><span class="line"><span class="comment">//是素数返回true.(可能是伪素数，但概率极小)</span></span><br><span class="line"><span class="comment">//合数返回false;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Miller_Rabin</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n&lt;<span class="number">2</span>)<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">if</span>(n==<span class="number">2</span>)<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">if</span>((n&amp;<span class="number">1</span>)==<span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;<span class="comment">//偶数</span></span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> x=n<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> t=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>((x&amp;<span class="number">1</span>)==<span class="number">0</span>)&#123;x&gt;&gt;=<span class="number">1</span>;t++;&#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;S;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> a=rand()%(n<span class="number">-1</span>)+<span class="number">1</span>;<span class="comment">//rand()需要stdlib.h头文件</span></span><br><span class="line">        <span class="keyword">if</span>(check(a,n,x,t))</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;<span class="comment">//合数</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="pollard-rho-longlong质因子分解"><a href="#pollard-rho-longlong质因子分解" class="headerlink" title="pollard_rho(longlong质因子分解)"></a>pollard_rho(longlong质因子分解)</h3><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//************************************************</span></span><br><span class="line"><span class="comment">//pollard_rho 算法进行质因数分解</span></span><br><span class="line"><span class="comment">//************************************************</span></span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> factor[<span class="number">100</span>];<span class="comment">//质因数分解结果（刚返回时是无序的）</span></span><br><span class="line"><span class="keyword">int</span> tol;<span class="comment">//质因数的个数。数组小标从0开始</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> gcd(<span class="keyword">long</span> <span class="keyword">long</span> a,<span class="keyword">long</span> <span class="keyword">long</span> b)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(a==<span class="number">0</span>)<span class="keyword">return</span> <span class="number">1</span>;<span class="comment">//???????</span></span><br><span class="line">    <span class="keyword">if</span>(a&lt;<span class="number">0</span>) <span class="function"><span class="keyword">return</span> <span class="title">gcd</span><span class="params">(-a,b)</span></span>;</span><br><span class="line">    <span class="keyword">while</span>(b)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> t=a%b;</span><br><span class="line">        a=b;</span><br><span class="line">        b=t;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> Pollard_rho(<span class="keyword">long</span> <span class="keyword">long</span> x,<span class="keyword">long</span> <span class="keyword">long</span> c)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> i=<span class="number">1</span>,k=<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> x0=rand()%x;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> y=x0;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        i++;</span><br><span class="line">        x0=(mult_mod(x0,x0,x)+c)%x;</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> d=gcd(y-x0,x);</span><br><span class="line">        <span class="keyword">if</span>(d!=<span class="number">1</span>&amp;&amp;d!=x) <span class="keyword">return</span> d;</span><br><span class="line">        <span class="keyword">if</span>(y==x0) <span class="keyword">return</span> x;</span><br><span class="line">        <span class="keyword">if</span>(i==k)&#123;y=x0;k+=k;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//对n进行素因子分解</span></span><br><span class="line"><span class="keyword">void</span> findfac(<span class="keyword">long</span> <span class="keyword">long</span> n)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(Miller_Rabin(n))<span class="comment">//素数</span></span><br><span class="line">    &#123;</span><br><span class="line">        factor[tol++]=n; <span class="comment">//值得注意的是 这里的factor并不是有序的!!!!!</span></span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> p=n;</span><br><span class="line">    <span class="keyword">while</span>(p&gt;=n)p=Pollard_rho(p,rand()%(n<span class="number">-1</span>)+<span class="number">1</span>);</span><br><span class="line">    findfac(p);</span><br><span class="line">    findfac(n/p);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="算数基本定理展开"><a href="#算数基本定理展开" class="headerlink" title="算数基本定理展开"></a>算数基本定理展开</h3><p>对于任意一个$N$我们可以写成$N=P_1^{a_1}<em>P_2^{a_2}*P_3^{a_3}</em>...*P_n^{a_n}$<br>我们求解的时候只要先讲素数筛出来,然后直接一个个的除就行了,这样的理想复杂度是$O(min{(小于log_2^n),kp}),kp为筛出的素数个数$<br>但是注意一种情况,可能展开的数N就是一个很大的素数,比如$99997$,这样的数如果有$1e6$个的话就不能简单快速的展开了.于是我们可以在判定数是否为素数的数组中在开一维记录其为第几个素数.这样一来复杂度就会降低很多$小于O(log_2^n)$</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> prime[N],kp;</span><br><span class="line"><span class="built_in">int</span> Is_or[N][<span class="number">2</span>];</span><br><span class="line"><span class="built_in">void</span> Prime()&#123;</span><br><span class="line">    kp = <span class="number">0</span>;</span><br><span class="line">    memset(Is_or,<span class="literal">true</span>,sizeof(Is_or));</span><br><span class="line">    Is_or[<span class="number">0</span>][<span class="number">0</span>]=Is_or[<span class="number">1</span>][<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="built_in">int</span> i=<span class="number">2</span>;i&lt;=<span class="number">100000</span>;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(Is_or[i][<span class="number">0</span>]) Is_or[i][<span class="number">1</span>]=kp,prime[kp++]=i;<span class="comment">//记录其为第几个素数</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="built_in">int</span> j=<span class="number">0</span>;j&lt;kp&amp;&amp;prime[j]*i&lt;=<span class="number">100000</span>;j++)&#123;</span><br><span class="line">            Is_or[prime[j]*i][<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">if</span>(<span class="number">0</span>==i%prime[j]) <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">int</span> main()&#123;</span><br><span class="line">    <span class="built_in">int</span> tem;</span><br><span class="line">    cin&gt;&gt;tem;</span><br><span class="line">    <span class="keyword">for</span>(<span class="built_in">int</span> j=<span class="number">0</span>;j&lt;kp&amp;&amp;tem&gt;=prime[j];j++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(Is_or[tem][<span class="number">0</span>]) &#123;a[Is_or[tem][<span class="number">1</span>]]++;<span class="keyword">break</span>;&#125;</span><br><span class="line">        <span class="comment">//if(0==tem%prime[j]) ;</span></span><br><span class="line">        <span class="keyword">while</span>(<span class="number">0</span>==tem%prime[j]) a[j]++,tem/=prime[j];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="乘性函数"><a href="#乘性函数" class="headerlink" title="乘性函数"></a>乘性函数</h1><h3 id="欧拉函数表"><a href="#欧拉函数表" class="headerlink" title="欧拉函数表"></a>欧拉函数表</h3><p>--------------------------.</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">void</span> phi_table()  <span class="comment">//欧拉函数。。。</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">2</span>; i&lt;=<span class="number">5e6</span>; i++)</span><br><span class="line">        phi[i]=<span class="number">0</span>;</span><br><span class="line">    phi[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">2</span>; i&lt;=<span class="number">5e6</span>; i++)</span><br><span class="line">        <span class="keyword">if</span>(!phi[i])</span><br><span class="line">            <span class="keyword">for</span>(j=i; j&lt;=<span class="number">5e6</span>; j+=i)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(!phi[j])phi[j]=j;</span><br><span class="line">                phi[j]=phi[j]/i*(i<span class="number">-1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">    phi[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">void</span> phi_table(<span class="built_in">int</span> maxn)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="built_in">int</span> i=<span class="number">1</span>;i&lt;=maxn;i++)</span><br><span class="line">    phi[i]=i;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="built_in">int</span> i=<span class="number">2</span>;i&lt;=maxn;i+=<span class="number">2</span>)</span><br><span class="line">    phi[i]/=<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="built_in">int</span> i=<span class="number">3</span>;i&lt;=maxn;i+=<span class="number">2</span>)</span><br><span class="line">    <span class="keyword">if</span>(phi[i]==i)</span><br><span class="line">        <span class="keyword">for</span>(<span class="built_in">int</span> j=i;j&lt;=maxn;j+=i)</span><br><span class="line">            phi[j]=phi[j]/i*(i<span class="number">-1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//  以上是打表的形式  这是求单个的</span></span><br><span class="line"><span class="built_in">void</span> Prime()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">int</span> n=<span class="number">200</span>;</span><br><span class="line">    <span class="built_in">int</span> k=<span class="number">0</span>;</span><br><span class="line">    memset(Is_or,<span class="number">1</span>,sizeof(Is_or));</span><br><span class="line">    Is_or[<span class="number">0</span>]=Is_or[<span class="number">1</span>]=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="built_in">int</span> i=<span class="number">2</span>; i&lt;n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(Is_or[i])</span><br><span class="line">        &#123;</span><br><span class="line">        prime[k++]=i;</span><br><span class="line">            <span class="keyword">for</span>(<span class="built_in">int</span> j=i+i; j&lt;n; j+=i)</span><br><span class="line">            &#123;</span><br><span class="line">                Is_or[j]=<span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">LL Phi(LL n)</span><br><span class="line">&#123;</span><br><span class="line">    LL rea=n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="built_in">int</span> i=<span class="number">0</span>; prime[i]*prime[i]&lt;=n&amp;&amp;i&lt;kp; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(n%prime[i]==<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            rea=rea-rea/prime[i];</span><br><span class="line">            <span class="keyword">while</span>(n%prime[i]==<span class="number">0</span>)</span><br><span class="line">                n/=prime[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(n&gt;<span class="number">1</span>)    rea=rea-rea/n;</span><br><span class="line">    <span class="keyword">return</span> rea;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/************************/</span></span><br><span class="line">O(n)求素数+欧拉函数</span><br><span class="line">用最小的素因子筛掉每个数</span><br><span class="line"><span class="built_in">int</span> prime[N],phi[N],cnt;<span class="comment">// prime:记录质数，phi记录欧拉函数</span></span><br><span class="line"><span class="built_in">int</span> Min_factor[N];<span class="comment">// i的最小素因子</span></span><br><span class="line"><span class="built_in">bool</span> vis[N];</span><br><span class="line"><span class="built_in">void</span> Init()</span><br><span class="line">&#123;</span><br><span class="line">    cnt=<span class="number">0</span>;</span><br><span class="line">    phi[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="built_in">int</span> x;</span><br><span class="line">    <span class="keyword">for</span>(<span class="built_in">int</span> i=<span class="number">2</span>;i&lt;N;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(!vis[i])</span><br><span class="line">        &#123;</span><br><span class="line">            prime[++cnt]=i;</span><br><span class="line">            phi[i]=i<span class="number">-1</span>;</span><br><span class="line">            Min_factor[i]=i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="built_in">int</span> k=<span class="number">1</span>;k&lt;=cnt&amp;&amp;prime[k]*i&lt;N;k++)</span><br><span class="line">        &#123;</span><br><span class="line">            x=prime[k]*i;</span><br><span class="line">            vis[x]=<span class="literal">true</span>;</span><br><span class="line">            Min_factor[x]=prime[k];</span><br><span class="line">            <span class="keyword">if</span>(i%prime[k]==<span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                phi[x]=phi[i]*prime[k];</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> phi[x]=phi[i]*(prime[k]<span class="number">-1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="计算方法"><a href="#计算方法" class="headerlink" title="计算方法"></a>计算方法</h1><h3 id="矩阵快速幂"><a href="#矩阵快速幂" class="headerlink" title="矩阵快速幂"></a>矩阵快速幂</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">struct Matrix</span><br><span class="line">&#123;</span><br><span class="line">    LL m[M][M];</span><br><span class="line">    <span class="built_in">void</span> clearO()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="built_in">int</span> i=<span class="number">0</span>; i&lt;M; i++) <span class="comment">//初始化矩阵</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="built_in">int</span> j=<span class="number">0</span>; j&lt;M; j++)</span><br><span class="line">                m[i][j]= <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">void</span> clearE()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="built_in">int</span> i=<span class="number">0</span>; i&lt;M; i++) <span class="comment">//初始化矩阵</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="built_in">int</span> j=<span class="number">0</span>; j&lt;M; j++)</span><br><span class="line">                m[i][j]= (i==j);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">void</span> display()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="built_in">int</span> i=<span class="number">0</span>; i&lt;M; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="built_in">int</span> j=<span class="number">0</span>; j&lt;M; j++)</span><br><span class="line">                printf(<span class="string">"%d "</span>,m[i][j]);</span><br><span class="line">                puts(<span class="string">""</span>);</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Matrix operator * (Matrix a,Matrix b)</span><br><span class="line">&#123;</span><br><span class="line">    Matrix c;</span><br><span class="line">    c.clearO();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="built_in">int</span> k=<span class="number">0</span>; k&lt;M; k++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="built_in">int</span> i=<span class="number">0</span>; i&lt;M; i++) <span class="comment">//实现矩阵乘法</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(a.m[i][k] &lt;= <span class="number">0</span>)  <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="built_in">int</span> j=<span class="number">0</span>; j&lt;M; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(b.m[k][j] &lt;= <span class="number">0</span>)    <span class="keyword">continue</span>;</span><br><span class="line">                c.m[i][j]=(c.m[i][j]+a.m[i][k]*b.m[k][j]+MOD)%MOD;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> c;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Matrix operator ^ (Matrix a,LL b)</span><br><span class="line">&#123;</span><br><span class="line">    Matrix c;</span><br><span class="line">    c.clearE();</span><br><span class="line">    <span class="keyword">while</span>(b)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(b&amp;<span class="number">1</span>) c= c * a ;</span><br><span class="line">        b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">        a = a * a ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//#include &lt;bits/stdc++.h&gt;</span></span><br><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta"># <span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="meta"># <span class="meta-keyword">define</span> pb push_back</span></span><br><span class="line"><span class="meta"># <span class="meta-keyword">define</span> abs(a) (a)&gt;0?(a):-(a)</span></span><br><span class="line"><span class="meta"># <span class="meta-keyword">define</span> min(a,b) (a)&gt;(b)?(a):(b)</span></span><br><span class="line"><span class="meta"># <span class="meta-keyword">define</span> lalal puts(<span class="meta-string">"*******"</span>);</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> LL ;</span><br><span class="line"><span class="comment">/*******************************/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">100</span>+<span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> MOD ;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Matrix</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    LL m[N][N];</span><br><span class="line">    <span class="keyword">int</span> row,culumn;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">clearE</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;row; i++)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;culumn; j++)</span><br><span class="line">                m[i][j]=(i==j);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">clearO</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;row; i++)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;culumn; j++)</span><br><span class="line">                m[i][j]=<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">display</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;row; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;culumn; j++)</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"%d "</span>,m[i][j]);</span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">""</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//循环矩阵 * 的写法。。对于循环矩阵来说 行和列是一样都循环的 并不用特意区分</span></span><br><span class="line">Matrix <span class="keyword">operator</span> *(Matrix &amp;a,Matrix &amp;b)</span><br><span class="line">&#123;</span><br><span class="line">    Matrix c;</span><br><span class="line">    c.row=a.row,c.culumn=b.culumn,c.clearO();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; a.culumn; k++)</span><br><span class="line">        <span class="keyword">if</span> (a.m[<span class="number">0</span>][k])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; b.culumn; j++)</span><br><span class="line">                <span class="keyword">if</span> (b.m[k][j])</span><br><span class="line">                    c.m[<span class="number">0</span>][j] = (c.m[<span class="number">0</span>][j] + a.m[<span class="number">0</span>][k] * b.m[k][j]) % MOD;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; c.culumn; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        c.m[i][<span class="number">0</span>] = c.m[i - <span class="number">1</span>][c.culumn - <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; c.culumn; j++)</span><br><span class="line">            c.m[i][j] = c.m[i - <span class="number">1</span>][j - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> c;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Matrix <span class="keyword">operator</span> ^(Matrix &amp;a,<span class="keyword">int</span> b)</span><br><span class="line">&#123;</span><br><span class="line">    Matrix c;</span><br><span class="line">    c.row=a.row,c.culumn=a.culumn,c.clearE();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(b)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(b&amp;<span class="number">1</span>) c=c*a;</span><br><span class="line">        b&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">        a=a*a;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> c;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;t);</span><br><span class="line">    <span class="keyword">while</span>(t--)</span><br><span class="line">    &#123;</span><br><span class="line">        LL n,m,L,R,M;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%I64d%I64d%I64d%I64d%I64d"</span>,&amp;n,&amp;m,&amp;L,&amp;R,&amp;M);</span><br><span class="line"></span><br><span class="line">        MOD=M;</span><br><span class="line">        Matrix a,b;</span><br><span class="line">        a.row=<span class="number">1</span>,b.row=a.culumn=b.culumn=n,a.clearO(),b.clearO();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%I64d"</span>,&amp;a.m[<span class="number">0</span>][i]);</span><br><span class="line">            a.m[<span class="number">0</span>][i]%=MOD;</span><br><span class="line">            b.m[(i<span class="number">-1</span>+n)%n][i]=R%MOD;</span><br><span class="line">            b.m[(i+<span class="number">1</span>)%n][i]=L%MOD;</span><br><span class="line">            b.m[i][i]=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        b=b^(m);</span><br><span class="line">        a=a*b;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(i)<span class="built_in">printf</span>(<span class="string">" "</span>);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%I64d"</span>,a.m[<span class="number">0</span>][i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">puts</span>(<span class="string">""</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="FFT-NTT"><a href="#FFT-NTT" class="headerlink" title="FFT/NTT"></a>FFT/NTT</h3><p>用于快速求卷积$c=a⊗b$<br>卷积可以类比两个多项式相乘<br>正常暴力求卷积的复杂度是$O(n^2)$  ,但是通过FFT加速 求卷积的复杂度能降到$O(nlog_{2}n)$<br><a href="http://www.gatevin.moe/acm/fft%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" target="_blank" rel="external nofollow noopener noreferrer">算法学习笔记</a><br>FFT模板</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line">struct Complex&#123;</span><br><span class="line">    <span class="built_in">double</span> real, image;</span><br><span class="line">    Complex(<span class="built_in">double</span> _real, <span class="built_in">double</span> _image)&#123;</span><br><span class="line">        real = _real;</span><br><span class="line">        image = _image;</span><br><span class="line">    &#125;</span><br><span class="line">    Complex()&#123;&#125;</span><br><span class="line"></span><br><span class="line">    Complex operator + (<span class="keyword">const</span> Complex &amp;tmp)&#123;</span><br><span class="line">        <span class="keyword">return</span> Complex(real + tmp.real, image + tmp.image);</span><br><span class="line">    &#125;</span><br><span class="line">    Complex operator - (<span class="keyword">const</span> Complex &amp;tmp)&#123;</span><br><span class="line">        <span class="keyword">return</span> Complex(real - tmp.real, image - tmp.image);</span><br><span class="line">    &#125;</span><br><span class="line">    Complex operator * (<span class="keyword">const</span> Complex &amp;tmp)&#123;</span><br><span class="line">        <span class="keyword">return</span> Complex(real*tmp.real - image*tmp.image, real*tmp.image + image*tmp.real);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">int</span> rev(<span class="built_in">int</span> id, <span class="built_in">int</span> len)&#123;</span><br><span class="line">    <span class="built_in">int</span> ret = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="built_in">int</span> i = <span class="number">0</span>; (<span class="number">1</span> &lt;&lt; i) &lt; len; i++)&#123;</span><br><span class="line">        ret &lt;&lt;= <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(id &amp; (<span class="number">1</span> &lt;&lt; i)) ret |= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line">Complex A[N];</span><br><span class="line"><span class="built_in">void</span> FFT(Complex *a, <span class="built_in">int</span> len, <span class="built_in">int</span> DFT)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; len; i++)</span><br><span class="line">        A[rev(i, len)] = a[i];</span><br><span class="line">    <span class="keyword">for</span>(<span class="built_in">int</span> s = <span class="number">1</span>; (<span class="number">1</span> &lt;&lt; s) &lt;= len; s++)&#123;</span><br><span class="line">        <span class="built_in">int</span> m = (<span class="number">1</span> &lt;&lt; s);</span><br><span class="line">        Complex wm = Complex(cos(DFT*<span class="number">2</span>*PI/m), sin(DFT*<span class="number">2</span>*PI/m));</span><br><span class="line">        <span class="keyword">for</span>(<span class="built_in">int</span> k = <span class="number">0</span>; k &lt; len; k += m)&#123;</span><br><span class="line">            Complex w = Complex(<span class="number">1</span>, <span class="number">0</span>);</span><br><span class="line">            <span class="keyword">for</span>(<span class="built_in">int</span> j = <span class="number">0</span>; j &lt; (m &gt;&gt; <span class="number">1</span>); j++)&#123;</span><br><span class="line">                Complex t = w*A[k + j + (m &gt;&gt; <span class="number">1</span>)];</span><br><span class="line">                Complex u = A[k + j];</span><br><span class="line">                A[k + j] = u + t;</span><br><span class="line">                A[k + j + (m &gt;&gt; <span class="number">1</span>)] = u - t;</span><br><span class="line">                w = w*wm;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(DFT == <span class="number">-1</span>) <span class="keyword">for</span>(<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; len; i++) A[i].real /= len, A[i].image /= len;</span><br><span class="line">    <span class="keyword">for</span>(<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; len; i++) a[i] = A[i];</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">int</span> main()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">	求卷积c=a⊗b</span></span><br><span class="line"><span class="comment">	la为a的长度</span></span><br><span class="line"><span class="comment">	lb为b的长度</span></span><br><span class="line"><span class="comment">	len为最后结果的长度.</span></span><br><span class="line"><span class="comment">	**/</span></span><br><span class="line">    <span class="built_in">int</span> sa,sb;</span><br><span class="line">    sa=sb=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>((<span class="number">1</span>&lt;&lt;sa)&lt;la) sa++;</span><br><span class="line">    <span class="keyword">while</span>((<span class="number">1</span>&lt;&lt;sb)&lt;lb) sb++;</span><br><span class="line">    <span class="built_in">int</span> len = (<span class="number">1</span>&lt;&lt;(max(sa,sb)+<span class="number">1</span>));</span><br><span class="line">    A = FFT(A,len,<span class="number">1</span>);</span><br><span class="line">    B = FFT(B,len,<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="built_in">int</span> i=<span class="number">0</span>;i&lt;len;i++)  A[i]=A[i]*B[i],ans[i]=<span class="number">0</span>;</span><br><span class="line">    A = FFT(A,len,<span class="number">-1</span>);</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    这是最后的卷积的结果.</span></span><br><span class="line"><span class="comment">    **/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>NTT</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">const int Maxn=<span class="number">50000</span>;</span><br><span class="line"></span><br><span class="line">LL A[Maxn&lt;&lt;<span class="number">2</span>],B[Maxn&lt;&lt;<span class="number">2</span>];</span><br><span class="line">int <span class="built_in">ans</span>[Maxn&lt;&lt;<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line">inline LL qmod(LL a, LL b,LL P) &#123;</span><br><span class="line">    LL <span class="built_in">ans</span>=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(; b; b&gt;&gt;=<span class="number">1</span>, a=a*a<span class="comment">%P)</span></span><br><span class="line">        <span class="keyword">if</span>(b&amp;<span class="number">1</span>) <span class="built_in">ans</span>=<span class="built_in">ans</span>*a<span class="comment">%P;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">ans</span>;</span><br><span class="line">&#125;</span><br><span class="line">struct NTT &#123;</span><br><span class="line">    int pos[Maxn&lt;&lt;<span class="number">2</span>],k,G,Mod;</span><br><span class="line">    inline void init(int len) &#123;</span><br><span class="line">        Mod = <span class="number">998244353</span>,G = <span class="number">3</span>;</span><br><span class="line">        <span class="keyword">for</span>(k=<span class="number">1</span>; k&lt;=len; k&lt;&lt;=<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">for</span>(int <span class="built_in">i</span>=<span class="number">1</span>; <span class="built_in">i</span>&lt;k; <span class="built_in">i</span>++)</span><br><span class="line">            pos[<span class="built_in">i</span>]=(<span class="built_in">i</span>&amp;<span class="number">1</span>)?((pos[<span class="built_in">i</span>&gt;&gt;<span class="number">1</span>]&gt;&gt;<span class="number">1</span>)^(k&gt;&gt;<span class="number">1</span>)):(pos[<span class="built_in">i</span>&gt;&gt;<span class="number">1</span>]&gt;&gt;<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    inline void dft(LL *a) &#123;</span><br><span class="line">        <span class="keyword">for</span>(int <span class="built_in">i</span>=<span class="number">1</span>; <span class="built_in">i</span>&lt;k; <span class="built_in">i</span>++)<span class="keyword">if</span>(pos[<span class="built_in">i</span>]&gt;<span class="built_in">i</span>)swap(a[pos[<span class="built_in">i</span>]],a[<span class="built_in">i</span>]);</span><br><span class="line">        <span class="keyword">for</span>(int m1=<span class="number">1</span>; m1&lt;k; m1&lt;&lt;=<span class="number">1</span>) &#123;</span><br><span class="line">            int m2=m1&lt;&lt;<span class="number">1</span>;</span><br><span class="line">            LL wn=qmod(G,(Mod<span class="number">-1</span>)/m2,Mod)<span class="comment">%Mod;</span></span><br><span class="line">            <span class="keyword">for</span>(int <span class="built_in">i</span>=<span class="number">0</span>; <span class="built_in">i</span>&lt;k; <span class="built_in">i</span>+=m2) &#123;</span><br><span class="line">                LL w=<span class="number">1</span>;</span><br><span class="line">                <span class="keyword">for</span>(int <span class="built_in">j</span>=<span class="number">0</span>; <span class="built_in">j</span>&lt;m1; <span class="built_in">j</span>++) &#123;</span><br><span class="line">                    LL &amp;A=a[<span class="built_in">i</span>+<span class="built_in">j</span>],&amp;B=a[<span class="built_in">i</span>+<span class="built_in">j</span>+m1],t=B*w<span class="comment">%Mod;</span></span><br><span class="line">                    B=(A-t+Mod)<span class="comment">%Mod;</span></span><br><span class="line">                    A=(A+t)<span class="comment">%Mod;</span></span><br><span class="line">                    w=w*wn<span class="comment">%Mod;</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    inline void mui(LL *A,LL *B,int m) &#123;</span><br><span class="line">        init(m);</span><br><span class="line">        dft(A);dft(B);</span><br><span class="line">        <span class="keyword">for</span>(int <span class="built_in">i</span>=<span class="number">0</span>; <span class="built_in">i</span>&lt;k; <span class="built_in">i</span>++)A[<span class="built_in">i</span>]=A[<span class="built_in">i</span>]*B[<span class="built_in">i</span>]<span class="comment">%Mod;</span></span><br><span class="line">        dft(A);</span><br><span class="line">        reverse(A+<span class="number">1</span>,A+k);</span><br><span class="line">        int inv=qmod(k,Mod<span class="number">-2</span>,Mod)<span class="comment">%Mod;</span></span><br><span class="line">        <span class="keyword">for</span>(int <span class="built_in">i</span>=<span class="number">0</span>; <span class="built_in">i</span>&lt;k; <span class="built_in">i</span>++)A[<span class="built_in">i</span>]=inv*A[<span class="built_in">i</span>]<span class="comment">%Mod;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125; ntt;</span><br></pre></td></tr></table></figure>
+<h3 id="牛顿迭代法-线性开根"><a href="#牛顿迭代法-线性开根" class="headerlink" title="牛顿迭代法 线性开根"></a>牛顿迭代法 线性开根</h3><blockquote>
+<p>下面这种方法可以很有效地求出根号a的近似值：首先随便猜一个近似值x，然后不断令x等于x和a/x的平均数，迭代个六七次后x的值就已经相当精确了。<br>    (       4  + 2/   4     ) / 2 = 2.25<br>    (    2.25  + 2/   2.25  ) / 2 = 1.56944..<br>    ( 1.56944..+ 2/1.56944..) / 2 = 1.42189..<br>    ( 1.42189..+ 2/1.42189..) / 2 = 1.41423..<br>    这种算法的原理很简单，我们仅仅是不断用(x,f(x))的切线来逼近方程x^2-a=0的根。根号a实际上就是x^2-a=0的一个正实根，这个函数的导数是2x。也就是说，函数上任一点(x,f(x))处的切线斜率是2x。那么，x-f(x)/(2x)就是一个比x更接近的近似值。代入f(x)=x^2-a得到x-(x^2-a)/(2x)，也就是(x+a/x)/2。</p>
+</blockquote>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="built_in">float</span> EPS = <span class="number">1e-5</span>;</span><br><span class="line"><span class="built_in">int</span> sqrt(<span class="built_in">double</span> x) &#123;</span><br><span class="line">    <span class="keyword">if</span>(x == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">double</span> result = x; <span class="comment">/*Use double to avoid possible overflow*/</span></span><br><span class="line">    <span class="built_in">double</span> lastValue;</span><br><span class="line">    <span class="keyword">do</span>&#123;</span><br><span class="line">        lastValue = result;</span><br><span class="line">        result = result / <span class="number">2.0f</span> + x / <span class="number">2.0f</span> / result;</span><br><span class="line">    &#125;<span class="keyword">while</span>(abs(result - lastValue) &gt; EPS);</span><br><span class="line"> <span class="keyword">return</span> (<span class="built_in">double</span>)result;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="更牛逼的一种开跟方式-快的一笔"><a href="#更牛逼的一种开跟方式-快的一笔" class="headerlink" title="更牛逼的一种开跟方式  快的一笔"></a>更牛逼的一种开跟方式  快的一笔</h4><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">来自雷神之锤III的源代码中q_math.c的文件中。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="built_in">float</span> Q_rsqrt( <span class="built_in">float</span> number ) &#123;</span><br><span class="line">    long i; <span class="built_in">float</span> x2, y; <span class="keyword">const</span> <span class="built_in">float</span> threehalfs = <span class="number">1.5</span>F;</span><br><span class="line">    x2 = number * <span class="number">0.5</span>F;</span><br><span class="line">    y = number;</span><br><span class="line">    i = * ( long * ) &amp;y; <span class="comment">// evil floating point bit level hacking</span></span><br><span class="line">    i = <span class="number">0x5f3759df</span> - ( i &gt;&gt; <span class="number">1</span> ); <span class="comment">// what the fuck?</span></span><br><span class="line">    y = * ( <span class="built_in">float</span> * ) &amp;i;</span><br><span class="line">    y = y * ( threehalfs - ( x2 * y * y ) ); <span class="comment">// 1st iteration</span></span><br><span class="line">    <span class="comment">// y = y * ( threehalfs - ( x2 * y * y ) ); // 2nd iteration, this can be removed</span></span><br><span class="line">    #ifndef Q3_VM #</span><br><span class="line">    ifdef __linux__ assert( !isnan(y) ); <span class="comment">// bk010122 - FPE?</span></span><br><span class="line">    #endif</span><br><span class="line">    #endif <span class="keyword">return</span> y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//整理得到</span></span><br><span class="line"><span class="built_in">int</span> sqrt(<span class="built_in">float</span> x) &#123;</span><br><span class="line">    <span class="keyword">if</span>(x == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">float</span> result = x;</span><br><span class="line">    <span class="built_in">float</span> xhalf = <span class="number">0.5f</span>*result;</span><br><span class="line">    <span class="built_in">int</span> i = *(<span class="built_in">int</span>*)&amp;result;</span><br><span class="line">    i = <span class="number">0x5f375a86</span>- (i&gt;&gt;<span class="number">1</span>); <span class="comment">// what the fuck?</span></span><br><span class="line">    result = *(<span class="built_in">float</span>*)&amp;i;</span><br><span class="line">    result = result*(<span class="number">1.5f</span>-xhalf*result*result); <span class="comment">// Newton step, repeating increases accuracy</span></span><br><span class="line">    result = result*(<span class="number">1.5f</span>-xhalf*result*result);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1.0f</span>/result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>$O(n)$预处理逆元</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">方法一  i的逆元</span><br><span class="line">inv[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">2</span>; i&lt;MAXN; i++)</span><br><span class="line">    inv[i] = inv[MOD%i]*(MOD-MOD/i)%MOD;</span><br><span class="line">方法二  inv&#123;(n-i)!&#125; = inv(n!)*n    <span class="comment">//阶乘逆元</span></span><br><span class="line">Fac[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">1</span>; i &lt; N; i++) Fac[i] = (Fac[i<span class="number">-1</span>] * i) % MOD;</span><br><span class="line">Inv[N<span class="number">-1</span>] = pow_mod(Fac[N<span class="number">-1</span>], MOD<span class="number">-2</span>);<span class="comment">//Fac[N]^&#123;MOD-2&#125;</span></span><br><span class="line"><span class="keyword">for</span> (<span class="built_in">int</span> i = N - <span class="number">2</span>; i &gt;= <span class="number">0</span>; i--) Inv[i] = Inv[i+<span class="number">1</span>] * (i + <span class="number">1</span>) % MOD;</span><br><span class="line">方法三  费马小定理</span><br><span class="line">fac[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="built_in">int</span> i=<span class="number">1</span>;i&lt;N;i++)fac[i]=fac[i<span class="number">-1</span>]*i%MOD;</span><br><span class="line"><span class="keyword">for</span>(<span class="built_in">int</span> i=<span class="number">1</span>;i&lt;N;i++)inv[i]=qmod(fac[i],MOD<span class="number">-2</span>);</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="数学概念"><a href="#数学概念" class="headerlink" title="数学概念"></a>数学概念</h1><h2 id="素数"><a href="#素数" class="headerlink" title="素数"></a>素数</h2><pre><code>不赘述</code></pre><h2 id="反素数"><a href="#反素数" class="headerlink" title="反素数"></a>反素数</h2><h2 id="原根"><a href="#原根" class="headerlink" title="原根"></a>原根</h2><p><strong>定义</strong>：设$m&gt;1$，$\gcd(a,m)=1$，使得$a^{r} \equiv(\mod m)$成立的最小的$r$，称为$a$对模$m$的阶，记为。$\delta_{m}(a)$</p>
+<p><strong>定理</strong>：如果模$m$有原根，那么它一共有个$\varphi(\varphi(m))$原根。</p>
+<p><strong>定理</strong>：若$m&gt;1$，$\gcd(a,m)=1$，$a^{n} \equiv(\mod m)$则$\delta_{m}(a)|n$。</p>
+<p><strong>定理</strong>：如果$p$为素数，那么素数$p$一定存在原根，并且模$p$的原根的个数为$\varphi(p-1)$。</p>
+<p><strong>定理</strong>：设$m$是正整数，$a$是整数，若$a$模$m$的阶等于$\varphi(m)$，则称$a$为模$m$的一个原根。</p>
+<p>   假设一个数$g$对于模$m$来说是原根，那么$g^{i}\mod p$的结果两两不同,且有$1\lt g\lt p$，$0\le i\lt p$那么$g$可以称为是模$p$的一个原根，归根到底就是$g^{p-1}\equiv (\mod p)$当且仅当指数为$p-1$的时候成立。（这里是素数）</p>
+<p>模$m$有原根的充要条件：$m=2,4,p^a,2p^a$，其中$p$是奇素数。</p>
+<p>求模素数$P$原根的方法：对$p-1$素因子分解，即$p-1=p_1^{a_1}p_2^{a_2}...p_k^{a_k}$是的标准分解式，若恒有<br>    $g^{\frac{p-1}{p_i} } \neq 1(\mod p)$</p>
+<p>成立，则$g$就是$p$的原根。（对于合数求原根，只需把$p-1$换成$\varphi(p)$即可）</p>
+<p><a href="http://blog.csdn.net/zhang20072844/article/details/11541133" target="_blank" rel="external nofollow noopener noreferrer">求解原根的优化方法</a></p>
+<p>求解原根的完整代码</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line">如果mod 为素数</span><br><span class="line"><span class="built_in">int</span> <span class="keyword">get</span>(<span class="built_in">int</span> mod) &#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="built_in">int</span> i = <span class="number">2</span>; ; i++) &#123;</span><br><span class="line">        <span class="keyword">set</span>&lt;<span class="built_in">int</span>&gt; s;</span><br><span class="line">        <span class="keyword">for</span>(<span class="built_in">int</span> j = <span class="number">1</span>, x = <span class="number">1</span>; j &lt; mod; j++) &#123;</span><br><span class="line">            x = (x*i)%mod;</span><br><span class="line">            s.insert(x);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(s.size() == mod<span class="number">-1</span>) <span class="keyword">return</span> i;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">----------------------------------------------------------------</span><br><span class="line"><span class="comment">//注意爆int，所以用LL</span></span><br><span class="line">LL qmod(LL a,LL b,LL c)&#123;</span><br><span class="line">    LL res = <span class="number">1</span>;a%=c;</span><br><span class="line">    <span class="keyword">while</span>(b)&#123;</span><br><span class="line">        <span class="keyword">if</span>(b&amp;<span class="number">1</span>) res=res*a%c;</span><br><span class="line">        b&gt;&gt;=<span class="number">1</span>,a=a*a%c;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">int</span> prime[N];</span><br><span class="line"><span class="built_in">int</span> Is_or[N][<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">void</span> Prime()&#123;</span><br><span class="line">    <span class="built_in">int</span> n = <span class="number">100000</span>;</span><br><span class="line">    prime[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">    memset(Is_or,<span class="number">1</span>,sizeof(Is_or));</span><br><span class="line">    <span class="keyword">for</span>(<span class="built_in">int</span> i=<span class="number">2</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(Is_or[i][<span class="number">0</span>]) prime[++prime[<span class="number">0</span>]]=i,Is_or[i][<span class="number">1</span>]=prime[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="built_in">int</span> j=<span class="number">1</span>;j&lt;=prime[<span class="number">0</span>]&amp;&amp;i*prime[j]&lt;=n;j++)&#123;</span><br><span class="line">            Is_or[i*prime[j]][<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">if</span>(<span class="number">0</span>==i%prime[j]) <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">int</span> Phi(<span class="built_in">int</span> x)&#123;</span><br><span class="line">    <span class="comment">//因为本题中数据都是质数，所以欧拉函数值就都是x-1了。</span></span><br><span class="line">    <span class="keyword">return</span> x<span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">int</span> a[<span class="number">10000</span>],cnt;</span><br><span class="line"><span class="built_in">void</span> divide(<span class="built_in">int</span> n)&#123;</span><br><span class="line">    cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="built_in">int</span> i=<span class="number">1</span>;prime[i]*prime[i]&lt;=n;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(n&lt;=prime[prime[<span class="number">0</span>]]&amp;&amp;Is_or[n][<span class="number">0</span>])&#123;a[++cnt]=n;n=<span class="number">1</span>;<span class="keyword">break</span>;&#125;</span><br><span class="line">        <span class="keyword">if</span>(n%prime[i]==<span class="number">0</span>)&#123;a[++cnt]=prime[i];n/=prime[i];&#125;</span><br><span class="line">        <span class="keyword">while</span>(n%prime[i]==<span class="number">0</span>)&#123;n/=prime[i];&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(n&gt;<span class="number">1</span>)a[++cnt]=n;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">void</span> work(<span class="built_in">int</span> n)&#123;</span><br><span class="line">    <span class="built_in">int</span> phi = Phi(n);</span><br><span class="line">    <span class="built_in">bool</span> flag ;</span><br><span class="line">    <span class="keyword">for</span>(<span class="built_in">int</span> i=<span class="number">2</span>;i&lt;n;i++)&#123; <span class="comment">//一个数的原根是很小的 所以暴力枚举就行,但其实是有优化方法的,</span></span><br><span class="line">        flag = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="built_in">int</span> j=<span class="number">1</span>;j&lt;=cnt;j++)&#123;</span><br><span class="line">            <span class="built_in">int</span> tmp = phi/a[j];</span><br><span class="line">            <span class="keyword">if</span>(qmod(i,tmp,n)==<span class="number">1</span>)&#123;</span><br><span class="line">                flag = <span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(flag)&#123;</span><br><span class="line">            printf(<span class="string">"%d\n"</span>,i);</span><br><span class="line">            <span class="keyword">return</span> ;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    puts(<span class="string">"没有原根"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">int</span> main()&#123;</span><br><span class="line">    Prime();</span><br><span class="line">    <span class="built_in">int</span> n;</span><br><span class="line">    <span class="keyword">while</span>(~scanf(<span class="string">"%d"</span>,&amp;n))&#123;</span><br><span class="line">        divide(Phi(n));</span><br><span class="line">        work(n);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+            <div class="article_footer">
+              
+                
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class="content">
+    
+      <blockquote>
+        
+          
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            <p>本文永久链接是：<a href="http://tabris.top/2016-05-24-51488462/">http://tabris.top/2016-05-24-51488462/</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  desktop mobile">
+  
+
+  <div class="content article-entry">
+    
+      
+        <div class="fancybox"><img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" data-original="https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/qrcode/wechat.jpg" height="64px"></div>
+      
+    
+      
+        <div class="fancybox"><img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" data-original="https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/qrcode/alipay.jpg" height="64px"></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class="meta" id="footer-meta">
+    <div class="new-meta-box">
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-19T13:14:24+00:00">
+  <a class="notlink">
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年6月19日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/csdn/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>CSDN</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%95%B0%E8%AE%BA/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>数论</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=http://tabris.top/2016-05-24-51488462/&title=[原创]数论各种小定理 - tabris的博客&summary=[原创]数论各种小定理
+2016-05-24 10:54:37  Tabris_ 阅读数：1852
+
+博客爬取于2020-06-14 22:39:18以下为正文
+版权声明：本文为Tabris原创文章，未经博主允许不得私自转载。https://blog.csdn.net/qq_33184171/article/details/51488462" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" data-original="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://tabris.top/2016-05-24-51488462/&title=[原创]数论各种小定理 - tabris的博客&summary=[原创]数论各种小定理
+2016-05-24 10:54:37  Tabris_ 阅读数：1852
+
+博客爬取于2020-06-14 22:39:18以下为正文
+版权声明：本文为Tabris原创文章，未经博主允许不得私自转载。https://blog.csdn.net/qq_33184171/article/details/51488462" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" data-original="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=http://tabris.top/2016-05-24-51488462/&title=[原创]数论各种小定理 - tabris的博客&summary=[原创]数论各种小定理
+2016-05-24 10:54:37  Tabris_ 阅读数：1852
+
+博客爬取于2020-06-14 22:39:18以下为正文
+版权声明：本文为Tabris原创文章，未经博主允许不得私自转载。https://blog.csdn.net/qq_33184171/article/details/51488462" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" data-original="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+        
+        <div class="hoverbox">
+          <a><img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" data-original="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/wechat.png"></a>
+          <div class="target">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARgAAAEYCAAAAACi5bZQAAAC/0lEQVR42u3aQZIiMQwEwP7/p2fvu0O0VDILgvSNgG5byaVC8vVj/bouBGDAgAEDBswamCtcfz//cKOb5x+9p/veY/WAAQMGDBgwYNbBlANQ8yB3+3RBqjBxPWDAgAEDBgyYtTCnA90UvPv+aT1gwIABAwYMmO+B6UKk0NPPYMCAAQMGDBgw3UKq31cDHRgwYMCAAQMGzKkBVfcA3eenAfJlk0gwYMCAAQMGzH+D6a7TjaRnN6bK9YABAwYMGDBg1sBMVzdQnWpgnd4fDBgwYMCAAbMPptpQSgdx1cLS/dJzlJMvGDBgwIABA+ZtYaoH7h48DWSnoaoNLDBgwIABAwbMPpjTQS5tLKXBLL3I9PD9YMCAAQMGDJg1MCnIqUDVBU6DZPkPBgMGDBgwYMCsgekGsnLDJyywCzdtpJWTLxgwYMCAAQPm7WHiFw4DXTfApQHvti4wYMCAAQMGzBqYp20Qfv8smPJzYMCAAQMGDJg1MGnDqRvopheRpo2t8u/BgAEDBgwYMGtgTg3SUpC0EZbCgwEDBgwYMGA+B6Y6GKs2hroHTAPisy4wgQEDBgwYMGD2waRBKh2YtYNXs2F2LOCBAQMGDBgwYNbAPGuQ1Q2Up+DbdYABAwYMGDBg1sKcuvhzCmR6cai9PxgwYMCAAQNmPcy0IdUFnja6ug2t8cANDBgwYMCAAfNymG4wKl/AeVHw64KAAQMGDBgwYPbDdC8QVUHSQDcNeun7wYABAwYMGDB7YKYXkacNqekF5qu5bqHBgAEDBgwYMGtgpqt7gGrj6PTgr3xBCgwYMGDAgAGzBuYKV7zxoUFcGgjBgAEDBgwYMJ8H0w106UHSRtfpgSAYMGDAgAED5vNg0sZQ2kCKCzjU2PrnMxgwYMCAAQPma2CmBabBLm183f5BYMCAAQMGDJivg5mCpIHx+L5gwIABAwYMmLUwp4JSt4DqIK47wKs2vMCAAQMGDBgwe2FODbC6UFOIdL9ywAMDBgwYMGDAvC2MBQYMGDBgwIBZtv4AcPzclZD8cjcAAAAASUVORK5CYII=">
+          </div>
+        </div>
+      
+    
+      
+        <a class="-mob-share-telegram" title rel="external nofollow noopener noreferrer" href="https://t.me/share/url?url=http://tabris.top/2016-05-24-51488462/&text=[原创]数论各种小定理 - tabris的博客" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" data-original="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/telegram.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class="prev" href="/2016-05-31-51544872/">
+                <p class="title"><i class="fas fa-chevron-left" aria-hidden="true"></i>[原创]codeforces #354 div.2 C   &&676C  Vasya and String</p>
+                <p class="content">[原创]codeforces #354 div.2 C   &amp;&amp;676C  Vasya and String
+2016-05-31 13:10:56  Tabris_ 阅读数：5...</p>
+              </a>
+            
+            
+              <a class="next" href="/2016-05-22-51476199/">
+                <p class="title">[原创]组合数学各种小定理<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class="content">[原创]组合数学各种小定理
+2016-05-22 18:11:12  Tabris_ 阅读数：1482
+
+博客爬取于2020-06-14 22:39:19以下为正文
+版权声明：本文为Tabris...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class="fas fa-comments"></i> 评论</p>
+      
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+  <script>
+  // https://github.com/theme-next/hexo-theme-next/blob/master/layout/_third-party/math/mathjax.swig
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.0/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    // 文章章节标题不能为 “MathJax” ，否则会报错。
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+
+
+
+  <script>
+    window.subData = {
+      title: '[原创]数论各种小定理',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class="l_side">
+  
+  
+    
+    
+
+<section class="widget blogger shadow desktop mobile">
+  <div class="content">
+    
+      
+        <a class="avatar flat-box" href="/about/">
+          <img no-lazy src="https://cdn.jsdelivr.net/gh/tabris233/cdn-assets/avatar/avatar.jpg">
+        </a>
+      
+    
+    
+      <div class="text">
+        
+          <h2>tabris's blog</h2>
+        
+        
+          <p>Tabris</p>
+
+        
+        
+          <p><span id="jinrishici-sentence">tabris的博客</span></p>
+          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="/atom.xml" class="social fas fa-rss flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="mailto:tabris.dq@qq.com" class="social fas fa-envelope flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://github.com/tabris233" class="social fab fa-github flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://music.163.com/#/user/home?id=63035382" class="social fas fa-headphones-alt flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+
+  <section class="widget toc-wrapper shadow desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class="name">本文目录</span>
+    
+  </header>
+
+
+    <div class="content">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#余数定理"><span class="toc-text">余数定理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#扩展欧几里得"><span class="toc-text">扩展欧几里得</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#逆元"><span class="toc-text">逆元</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#求逆元的两种方法"><span class="toc-text">求逆元的两种方法</span></a></li></ol></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#求解高次同余方程"><span class="toc-text">求解高次同余方程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#babystep算法模板"><span class="toc-text">babystep算法模板</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#线性筛法打素数表"><span class="toc-text">线性筛法打素数表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#随机性素数测试-miller-rabbin"><span class="toc-text">随机性素数测试    miller-rabbin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pollard-rho-longlong质因子分解"><span class="toc-text">pollard_rho(longlong质因子分解)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#算数基本定理展开"><span class="toc-text">算数基本定理展开</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#欧拉函数表"><span class="toc-text">欧拉函数表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#矩阵快速幂"><span class="toc-text">矩阵快速幂</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FFT-NTT"><span class="toc-text">FFT&#x2F;NTT</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#牛顿迭代法-线性开根"><span class="toc-text">牛顿迭代法 线性开根</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#更牛逼的一种开跟方式-快的一笔"><span class="toc-text">更牛逼的一种开跟方式  快的一笔</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#素数"><span class="toc-text">素数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#反素数"><span class="toc-text">反素数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原根"><span class="toc-text">原根</span></a>
+    </li></div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js theme="#1BCDFC" autoplay="false" volume="0.7" loop="all" order="list" fixed="false" list-max-height="340px" server="netease" type="playlist" id="3175833810" list-folded="true">
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml" class="social fas fa-rss flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="mailto:tabris.dq@qq.com" class="social fas fa-envelope flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/tabris233" class="social fab fa-github flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=63035382" class="social fas fa-headphones-alt flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="external nofollow noopener noreferrer">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+      
+    
+      
+        本站使用
+        <a href="https://volantis.js.org/" target="_blank" class="codename" rel="external nofollow noopener noreferrer">Volantis</a>
+        作为主题，总访问量为
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          次
+        
+      
+    
+      
+        <div class="copyright">
+        <p><a href="http://tabris.top">Copyright © 2017-2020 tabris</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '8px',
+        duration: '800',
+        interval: '100',
+        scale: '1'
+      });
+    });
+  </script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('') {
+          $('').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "XkeYrd6r1FrJXgASPvPJa9Hp-gzGzoHsz",
+    appKey: "de9Yfw8ns8xwf6S9eHOj82Wi",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'true',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.6.5/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-check-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-check-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-times-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-times-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  function pjax_fancybox() {
+    $(".article-entry").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 标准 markdown 描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".article-entry").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  $(function () {
+    pjax_fancybox();
+  });
+</script>
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+<script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
+</html>
